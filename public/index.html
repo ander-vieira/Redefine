@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <link rel="Stylesheet" href="estilo.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="index2.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div id="container">
+    <div id="box">
+      <p id="username"><a href="login.html">Log in</a></p>
+    </div>
+    <ul id="menuul">
+      <li id="menuli"><a title="Home" href="#">Home</a></li>
+      <li id="menuli"><a title="Dinero gratis" href="#">Dinero gratis</a></li>
+      <li id="menuli"><a title="Sobre nosotros" href="#">Sobre nosotros</a></li>
+      <li id="menuli"><a title="Cerrar sesion" href="log_out">Salir</a></li>
+    </ul>
+    </div>
+  </nav>
+  <h1>Bienvenido al index que Aritz ha preparado para ti</h1>
+  <h2>Espero que lo disfrutes</h2>
+
+  <h2>Formulario de gente:</h2>
+
+  <form action="form" method="post">
+    Nombre:<br>
+    <input type="text" name="firstname">
+    <br>
+    Apellido:<br>
+    <input type="text" name="lastname">
+    <br><br>
+    <input type="submit" value="Enviar">
+  </form>
+  <br>
+  <form action="delete" method="get">
+    <input type="submit" value="Borrar">
+  </form>
+  <table id="tabla">
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+    </tr>
+  </table>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+body {
+  background-image: url("background.jpg");
+}
+
+#menuul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    opacity: 0;
+    flex: 5;
+    visibility: hidden;
+
+    transition: all .1s ease-in-out;
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;
+}
+#container{
+  display: flex;
+  width: 100%;
+}
+
+#box {
+    background: red;
+    transition: all 1s ease-in-out;
+    flex: 1;
+}
+
+#box:hover + ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+#menuul:hover{
+  opacity: 1;
+  visibility: visible;
+}
+
+#menuul a
+{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+table
+{
+  margin-left:auto;
+  margin-right:auto;
+  border: 1px solid green;
+}
+
+td {
+  border: 1px solid green;
+}
+
+th {
+  border: 1px solid green;
+  background-color: green;
+  color: white;
+}
+
+/* Change the link color to #111 (black) on hover */
+#menuul a:hover
+{
+    background-color: #111;
+}
+
+h1 {
+    color: gray;
+    text-align: center;
+}
+
+#username {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
