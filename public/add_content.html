@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Publicar contenido</title>
+<script src="scripts/add_content_dyn.js"></script>
+</head>
+<body>
+
+<form action="" method="POST">
+Texto:<input id="radio1" type="radio" name="tipo-cont" value="texto" checked="true" onchange="change_display();"><br>
+Imagen:<input id="radio2" type="radio" name="tipo-cont" value="imagen" onchange="change_display();"><br>
+
+<div id="input_texto"><p>
+Contenido del mensaje:
+<textarea name="texto-valor" rows="10" cols="20"></textarea>
+</p></div>
+<div id="input_imagen" style="display:none;"><p>
+URL de la imagen:
+<input type="text" name="imagen-url">
+</p></div>
+</form>
+
+</body>
+</html>
