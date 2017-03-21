@@ -1,14 +1,19 @@
 <html>
 <head>
 <title>Publicar contenido</title>
+<link rel="stylesheet" href="estilo.css" type="text/css">
 <script src="scripts/add_content_dyn.js"></script>
 </head>
 <body>
 
-<form action="" method="POST">
-Texto:<input id="radio1" type="radio" name="tipo-cont" value="texto" checked="true" onchange="change_display();"><br>
-Imagen:<input id="radio2" type="radio" name="tipo-cont" value="imagen" onchange="change_display();"><br>
+<h1>Publicar contenido</h1>
 
+<form action="" method="POST">
+<p>
+Tipo de contenido:<br>
+Texto <input id="radio1" type="radio" name="tipo-cont" value="texto" checked="true" onchange="change_display();"><br>
+Imagen <input id="radio2" type="radio" name="tipo-cont" value="imagen" onchange="change_display();"><br>
+</p>
 <div id="input_texto"><p>
 Contenido del mensaje:
 <textarea name="texto-valor" rows="10" cols="20"></textarea>
@@ -18,6 +23,8 @@ URL de la imagen:
 <input type="text" name="imagen-url">
 </p></div>
 </form>
+
+<a href="index.html">Volver al inicio</a>
 
 </body>
 </html>
