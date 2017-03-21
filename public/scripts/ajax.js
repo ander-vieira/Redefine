@@ -25,7 +25,7 @@ xhttp2.onreadystatechange = function() {
     if(this.readyState==4 && this.status==200) {
         var jsonObj2 = JSON.parse(this.responseText);
 
-        username.innerHTML = jsonObj2[0].nombre;
+        username.innerHTML = jsonObj2.nombre;
     }
 };
 

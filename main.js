@@ -40,22 +40,8 @@ app.get('/insultos', function (req, res) {
 app.get('/nombre', function (req, res) {
   var cookie = req.cookies["redefine"];
 
-  MongoClient.connect(constants.mongourl, function(err, db)
-  {
-    if(err)
-    {console.log("ha habido un error");}
-    else
-    {
-      var col = db.collection('logins');
-      col.find({"cookie":cookie}).toArray(function(err, items)
-      {
-        if(err)
-        {console.log("error, ha cascao")}
-        else{
-          res.send(items);
-        }
-      });
-    }
+  var items = queries.get_session_data(cookie, function(items) {
+    res.send(items);
   });
 });
 
