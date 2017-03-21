@@ -1,0 +1,26 @@
+body {
+  background-image: url("../media/background.jpg");
+}
+
+table
+{
+  margin-left:auto;
+  margin-right:auto;
+  border: 1px solid green;
+}
+
+td {
+  border: 1px solid green;
+}
+
+th {
+  border: 1px solid green;
+  background-color: green;
+  color: white;
+}
+
+h1 {
+    color: gray;
+    text-align: center;
+}
+
