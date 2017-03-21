@@ -1,0 +1,7 @@
+Este proyecto utiliza Node.JS para ejecutar el servidor escrito en JavaScript.
+
+Este servidor ofrece servicios Web y páginas Web, cuyo contenido se encuentra en public/
+
+El directorio public a su vez se divide en función de los tipos de archivo. Además de archivos HTML, CSS y multimedia, la página Web utiliza JavaScript (ejecutado en el navegador) para dinamizar el contenido. No confundir los archivos JavaScript del lado del cliente (en public/scripts) y los que componen el servidor (en /).
+
+El objetivo del proyecto es ofrecer una plataforma de publicación de contenidos dedicada al mundo de los videojuegos, además de otros servicios auxiliares.
