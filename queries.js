@@ -6,7 +6,7 @@ function insert_cookie(nombre, cookie) {
     if(!err) {
       var col = db.collection('logins');
 
-      col.insert({"nombre":nombre, "cookie":cookie});
+      col.insert({"nombre":nombre, "cookie":cookie}, function() {db.close();});
     }
   });
 }
@@ -16,7 +16,7 @@ function delete_cookie(cookie) {
     if(!err) {
       var col = db.collection('logins');
 
-      col.remove({"cookie":cookie});
+      col.remove({"cookie":cookie}, function() {db.close();});
     }
   });
 
@@ -38,6 +38,7 @@ function get_session_data(cookie, aftercall) {
         else{
           aftercall(items[0]);
         }
+        db.close();
       });
     }
   });
@@ -73,7 +74,7 @@ function delete_name_entries(aftercall) {
     else
     {
       var col = db.collection('insultos');
-      col.remove({});
+      col.remove({}, function() {db.close();});
       aftercall();
     }
   });
