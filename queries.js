@@ -45,6 +45,42 @@ function get_session_data(cookie, aftercall) {
   return datos;
 }
 
+function insert_name_entry(nombre, apellido, aftercall) {
+  MongoClient.connect(constants.mongourl, function(err, db)
+  {
+    if(err)
+    {
+      console.log("ha habido un error");
+      res.send('La DB ha petado');
+    }
+    else
+    {
+      var col = db.collection('insultos');
+      col.insert({"nombre":nombre,"insulto":apellido},function(){db.close();});
+      aftercall();
+    }
+  });
+}
+
+function delete_name_entries(aftercall) {
+  MongoClient.connect(constants.mongourl, function(err, db)
+  {
+    if(err)
+    {
+      console.log("ha habido un error");
+      res.send('La DB ha petado');
+    }
+    else
+    {
+      var col = db.collection('insultos');
+      col.remove({});
+      aftercall();
+    }
+  });
+}
+
 module.exports.insert_cookie = insert_cookie;
 module.exports.delete_cookie = delete_cookie;
 module.exports.get_session_data = get_session_data;
+module.exports.insert_name_entry = insert_name_entry;
+module.exports.delete_name_entries = delete_name_entries;

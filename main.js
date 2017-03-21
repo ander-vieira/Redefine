@@ -52,37 +52,15 @@ app.post('/form', function (req, res)
 
   console.log("Insertando: "+nombre+":"+insulto);
 
-  MongoClient.connect(constants.mongourl, function(err, db)
-  {
-    if(err)
-    {
-      console.log("ha habido un error");
-      res.send('La DB ha petado');
-    }
-    else
-    {
-      var col = db.collection('insultos');
-      col.insert({"nombre":nombre,"insulto":insulto},function(){db.close();});
-      res.redirect(req.get('referer'));
-    }
+  queries.insert_name_entry(nombre, insulto, function() {
+    res.redirect(req.get('referer'));
   });
 });
 
 app.get('/delete', function (req, res)
 {
-  MongoClient.connect(constants.mongourl, function(err, db)
-  {
-    if(err)
-    {
-      console.log("ha habido un error");
-      res.send('La DB ha petado');
-    }
-    else
-    {
-      var col = db.collection('insultos');
-      col.remove({});
-      res.redirect(req.get('referer'));
-    }
+  queries.delete_name_entries(function() {
+    res.redirect(req.get('referer'));
   });
 });
 
