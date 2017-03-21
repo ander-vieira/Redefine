@@ -78,6 +78,18 @@ function delete_name_entries(aftercall) {
       aftercall();
     }
   });
+
+  function register_user(nombre, pass) {
+    MongoClient.connect(constants.mongourl, function(err, db) {
+      if(!err) {
+        var col = db.collection('users');
+
+        col.insert({"nombre":nombre,"pass":pass},function(){db.close();});
+        //tiene que hacer un aftercall para que te mande a algun sitio
+      }
+    });
+
+  }
 }
 
 module.exports.insert_cookie = insert_cookie;
