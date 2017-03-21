@@ -4,6 +4,8 @@ var bodyParser = require("body-parser")
 var cookieParser = require("cookie-parser")
 var MongoClient = require('mongodb').MongoClient;
 
+var constants = require('./constants');
+
 app.use(express.static('./public'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -15,9 +17,7 @@ app.get('/hola', function (req, res) {
 });
 
 app.get('/insultos', function (req, res) {
-  var url = 'mongodb://localhost:27017/prueba';
-
-  MongoClient.connect(url, function(err, db)
+  MongoClient.connect(constants.mongourl, function(err, db)
   {
     if(err)
     {console.log("ha habido un error");}
@@ -37,10 +37,9 @@ app.get('/insultos', function (req, res) {
 });
 
 app.get('/nombre', function (req, res) {
-  var url = 'mongodb://localhost:27017/prueba';
   var cookie = req.cookies["redefine"];
 
-  MongoClient.connect(url, function(err, db)
+  MongoClient.connect(constants.mongourl, function(err, db)
   {
     if(err)
     {console.log("ha habido un error");}
@@ -61,13 +60,12 @@ app.get('/nombre', function (req, res) {
 
 app.post('/form', function (req, res)
 {
-  var url = 'mongodb://localhost:27017/prueba';
   var nombre = req.body.firstname;
   var insulto = req.body.lastname;
 
   console.log("Insertando: "+nombre+":"+insulto);
 
-  MongoClient.connect(url, function(err, db)
+  MongoClient.connect(constants.mongourl, function(err, db)
   {
     if(err)
     {
@@ -85,9 +83,7 @@ app.post('/form', function (req, res)
 
 app.get('/delete', function (req, res)
 {
-  var url = 'mongodb://localhost:27017/prueba';
-
-  MongoClient.connect(url, function(err, db)
+  MongoClient.connect(constants.mongourl, function(err, db)
   {
     if(err)
     {
@@ -104,12 +100,11 @@ app.get('/delete', function (req, res)
 });
 
 app.post('/log_in', function(req, res) {
-  var url = "mongodb://localhost:27017/prueba";
   var nombre = req.body.user;
   var cookie = Math.random().toString();
   cookie = cookie.substring(2, cookie.length);
 
-  MongoClient.connect(url, function(err, db) {
+  MongoClient.connect(constants.mongourl, function(err, db) {
     if(!err) {
       var col = db.collection('logins');
 
@@ -122,10 +117,9 @@ app.post('/log_in', function(req, res) {
 });
 
 app.get('/log_out', function(req, res) {
-  var url = "mongodb://localhost:27017/prueba";
   var cookie = req.cookies["redefine"];
 
-  MongoClient.connect(url, function(err, db) {
+  MongoClient.connect(constants.mongourl, function(err, db) {
     if(!err) {
       var col = db.collection('logins');
 
