@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser")
 var MongoClient = require('mongodb').MongoClient;
 
 var constants = require('./constants');
+var queries = require('./queries');
 
 app.use(express.static('./public'));
 
@@ -104,13 +105,7 @@ app.post('/log_in', function(req, res) {
   var cookie = Math.random().toString();
   cookie = cookie.substring(2, cookie.length);
 
-  MongoClient.connect(constants.mongourl, function(err, db) {
-    if(!err) {
-      var col = db.collection('logins');
-
-      col.insert({"nombre":nombre, "cookie":cookie});
-    }
-  });
+  queries.insert_cookie(nombre, cookie);
 
   res.cookie("redefine", cookie);
   res.redirect("/");
@@ -119,13 +114,7 @@ app.post('/log_in', function(req, res) {
 app.get('/log_out', function(req, res) {
   var cookie = req.cookies["redefine"];
 
-  MongoClient.connect(constants.mongourl, function(err, db) {
-    if(!err) {
-      var col = db.collection('logins');
-
-      col.remove({"cookie":cookie});
-    }
-  });
+  queries.delete_cookie(cookie);
 
   res.clearCookie("redefine");
   res.redirect("/");
