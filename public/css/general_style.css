@@ -1,27 +1,35 @@
 body {
-  /*background-image: url("../media/background.jpg");*/
-  background-color:black;
-  background-image: url("../media/Logo.png");
+    /*background-image: url("../media/background.jpg");*/
+    background-color: white;
+    /*background-image: url("../media/aaa.png");*/
+    background-position: center;
 }
 
-table
-{
-  margin-left:auto;
-  margin-right:auto;
-  border: 1px solid #444444;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #444444;
+    background-color: white;
 }
 
 td {
-  border: 1px solid #444444;
+    border: 1px solid #444444;
 }
 
 th {
-  border: 1px solid #444444;
-  background-color: #444444;
-  color: white;
+    border: 1px solid #444444;
+    background-color: #444444;
+    color: white;
 }
 
 h1 {
-    color: gray;
+    color: black;
     text-align: center;
 }

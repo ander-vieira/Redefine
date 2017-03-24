@@ -1,0 +1,96 @@
+/*
+ESTE CSS DESCRIBE UN HEXAGONO, DE LOS CUALES CONTROLAREMOS SU TAMAÑO  DESDE
+OTROS ELEMENTOS DE OTROS CSSs GRACIAS A LA VARIABLE --MAIN-WIDTH
+*/
+
+:root {
+    --main-width: 200px; /*Asi es como se definen variables en css, por si os preguntais que es esto xD*/
+}
+
+.container {
+    position: relative;
+    padding: 5px;
+    top: auto;
+    left: auto;
+    width: var(--main-width);
+    height: calc(var(--main-width) + 30);
+    float: left;
+}
+
+.hexagon {
+    float: left;
+    position: relative;
+    width: var(--main-width);
+    height: calc(var(--main-width) / 1.732);
+    margin: calc(var(--main-width) / 3.4542) 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    border-left: solid 2px #333333;
+    border-right: solid 2px #333333;
+}
+
+.hexTop, .hexBottom {
+    position: absolute;
+    z-index: 1;
+    width: calc(var(--main-width) / 1.4142);
+    height: calc(var(--main-width) / 1.4142);
+    overflow: hidden;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background: inherit;
+    left: calc(var(--main-width) / 6.82904);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+
+/*counter transform the bg image on the caps*/
+
+.hexTop:after, .hexBottom:after {
+    content: "";
+    position: absolute;
+    width: var(--main-width);
+    height: calc(var(--main-width) / 1.732);
+    -webkit-transform: rotate(45deg) scaleY(1.7321) translateY(calc(var(--main-width) / -3.4641));
+    -ms-transform: rotate(45deg) scaleY(1.7321) translateY(calc(var(--main-width) / -3.4641));
+    transform: rotate(45deg) scaleY(1.7321) translateY(calc(var(--main-width) / -3.4641));
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    background: inherit;
+}
+
+.hexTop {
+    top: calc(var(--main-width) / -2.828427);
+    border-top: solid 2.8284px #333333;
+    border-right: solid 2.8284px #333333;
+}
+
+.hexTop:after {
+    background-position: center top;
+}
+
+.hexBottom {
+    bottom: calc(var(--main-width) / -2.828427);
+    border-bottom: solid 2.8284px #333333;
+    border-left: solid 2.8284px #333333;
+}
+
+.hexBottom:after {
+    background-position: center bottom;
+}
+
+.hexagon:after {
+    content: "";
+    position: absolute;
+    top: 0.0000px;
+    left: 0;
+    width: var(--main-width);
+    height: calc(var(--main-width) / 1.732);
+    z-index: 2;
+    background: inherit;
+}
+
+.hexagon h1 {
+    color: #000000;
+    z-index: 3;
+}

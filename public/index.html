@@ -2,50 +2,92 @@
 <html>
 
 <head>
-  <link rel="Stylesheet" href="css/general_style.css" type="text/css">
-  <link rel="Stylesheet" href="css/main_menu.css" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="scripts/ajax.js"></script>
+    <meta charset="utf-8">
+    <link rel="Stylesheet" href="css/general_style.css" type="text/css">
+    <link rel="Stylesheet" href="css/main_menu.css" type="text/css">
+    <link rel="Stylesheet" href="css/hexagon.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="scripts/ajax.js"></script>
+    <script src="./scripts/register.js"></script>
+    <title>RedefineHome</title>
 </head>
 
 <body>
-  <nav>
-    <div id="container">
-    <div id="box">
-      <p id="username"><a href="login.html">Log in</a></p>
-    </div>
-    <ul id="menuul">
-      <li id="menuli"><a title="Home" href="#">Home</a></li>
-      <li id="menuli"><a title="Publicar contenido" href="add_content.html">Publicar</a></li>
-      <li id="menuli"><a title="Sobre nosotros" href="#">Sobre nosotros</a></li>
-      <li id="menuli"><a title="Cerrar sesion" href="log_out">Salir</a></li>
-    </ul>
-    </div>
-  </nav>
-  <h1>Bienvenido al index que Aritz ha preparado para ti</h1>
-  <h2>Espero que lo disfrutes</h2>
+    <!--DIV de la imagen de fondo hata un x% de la pantalla-->
+    <div id="separador1">
+        <nav>
 
-  <h2>Formulario de gente:</h2>
+            <!--El gif de redefine nos lleva al index-->
+            <a href="index.html">
+                <div class="hexagon" id="box-redefine">
+                    <div class="hexTop"></div>
+                    <div class="hexBottom"></div>
+                </div>
+            </a>
 
-  <form action="form" method="post">
-    Nombre:<br>
-    <input type="text" name="firstname">
-    <br>
-    Apellido:<br>
-    <input type="text" name="lastname">
-    <br><br>
-    <input type="submit" value="Enviar">
-  </form>
-  <br>
-  <form action="delete" method="get">
-    <input type="submit" value="Borrar">
-  </form>
-  <table id="tabla">
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-    </tr>
-  </table>
+            <ul id="menuul">
+                <li class="menuli"><a href="#">¿Quienes somos?</a></li>
+                <li class="menuli"><a title="Home" href="#">Home</a></li>
+                <li class="menuli"><a title="Publicar contenido" href="add_content.html">Publicar</a></li>
+                <li class="menuli"><a title="Sobre nosotros" href="#">Sobre nosotros</a></li>
+                <li class="menuli"><a title="Cerrar sesion" href="log_out">Salir</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--Empieza aqui la parte de los hexagonos, fuera del fondo-->
+    <div id="itemMenuCenter">
+        <div class="container">
+
+            <!--Al tocar este hexagono se abre el menu de SIGN UP / SIGN IN (LogInScreen) ... lo que querais-->
+            <div class="hexagon" id="SignUp">
+                <h1>SIGN UP</h1>
+                <div class="hexTop"></div>
+                <div class="hexBottom"></div>
+            </div>
+
+            <div id="LogInScreen">
+                <h2>¿No tienes cuenta?</h2>
+                <h4>¡Crea una ahora mismo!</h4>
+                <form action="form" method="post" autocomplete="off" onsubmit="comprobar_pass()">
+                    Nombre:<br>
+                    <input type="text" name="firstname">
+                    <br>Apellido:<br>
+                    <input type="text" name="lastname">
+                    <br><br>
+                    <input type="submit" value="Unirse">
+                </form>
+                <br>
+                <form action="delete" method="get">
+                    <input type="submit" value="Borrar">
+                </form>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="hexagon" id="ZonaIndie">
+                <h1>Zona Indie</h1>
+                <div class="hexTop"></div>
+                <div class="hexBottom"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="hexagon" id="Actualidad">
+                <h1>Actualidad</h1>
+                <div class="hexTop"></div>
+                <div class="hexBottom"></div>
+            </div>
+        </div>
+
+        <!--Tabla que muestra lo que hay en la base de datos-->
+        <table id="tabla">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>
