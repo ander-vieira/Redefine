@@ -9,7 +9,7 @@ OTROS ELEMENTOS DE OTROS CSSs GRACIAS A LA VARIABLE --MAIN-WIDTH
 
 .container {
     position: relative;
-    padding: 5px;
+    padding: 15px;
     top: auto;
     left: auto;
     width: var(--main-width);
@@ -24,8 +24,6 @@ OTROS ELEMENTOS DE OTROS CSSs GRACIAS A LA VARIABLE --MAIN-WIDTH
     height: calc(var(--main-width) / 1.732);
     margin: calc(var(--main-width) / 3.4542) 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-    border-left: solid 2px #333333;
-    border-right: solid 2px #333333;
 }
 
 .hexTop, .hexBottom {
@@ -61,8 +59,6 @@ OTROS ELEMENTOS DE OTROS CSSs GRACIAS A LA VARIABLE --MAIN-WIDTH
 
 .hexTop {
     top: calc(var(--main-width) / -2.828427);
-    border-top: solid 2.8284px #333333;
-    border-right: solid 2.8284px #333333;
 }
 
 .hexTop:after {
@@ -71,8 +67,6 @@ OTROS ELEMENTOS DE OTROS CSSs GRACIAS A LA VARIABLE --MAIN-WIDTH
 
 .hexBottom {
     bottom: calc(var(--main-width) / -2.828427);
-    border-bottom: solid 2.8284px #333333;
-    border-left: solid 2.8284px #333333;
 }
 
 .hexBottom:after {

@@ -16,12 +16,12 @@
 
 #box-redefine {
     position: relative;
-    float: left;
-    left: 5px;
+    left: 45%;
+    z-index: 20;
     top: calc(var(--main-width) / -4);
     background-image: url(../media/Logo2.gif);
     --main-width: 150px;
-    background-size: auto calc((var(--main-width) / 0.866) - 10px);
+    background-size: auto calc((var(--main-width) / 0.866));
     background-position: center;
 }
 
@@ -29,15 +29,15 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
     background-color: #333333;
     opacity: 1;
     flex: 5;
     visibility: visible;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
     border-bottom: solid 2px;
     height: 35px;
+    width: 80%;
+    border-radius: 10px;
 }
 
 #menuul a {
@@ -123,7 +123,6 @@
     left: calc(var(--main-width)/ -2);
     color: white;
     padding: 20px;
-
     animation-name: fadeIn;
     animation-duration: 0.5s;
 }
@@ -132,7 +131,7 @@
     display: block;
 }
 
-#SignUp:hover + #LogInScreen {
+#SignUp:hover+#LogInScreen {
     display: block;
 }
 
