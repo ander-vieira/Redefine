@@ -16,7 +16,6 @@
     <!--DIV de la imagen de fondo hata un x% de la pantalla-->
     <div id="separador1">
         <nav>
-
             <!--El gif de redefine nos lleva al index-->
             <a href="index.html">
                 <div class="hexagon" id="box-redefine">
@@ -25,13 +24,20 @@
                 </div>
             </a>
 
-            <ul id="menuul">
-                <li class="menuli"><a href="#">COSA1!</a></li>
-                <li class="menuli"><a title="Home" href="#">Home</a></li>
-                <li class="menuli"><a title="Publicar contenido" href="add_content.html">Publicar</a></li>
-                <li class="menuli"><a title="Sobre nosotros" href="index.html">Sobre nosotros</a></li>
-                <li class="menuli"><a title="Cerrar sesion" href="log_out">Salir</a></li>
-            </ul>
+            <div id="box-menu-left">
+                <ul id="menuul">
+                    <li class="menuli"><a title="Home" href="#">Home</a></li>
+                    <li class="menuli"><a title="Publicar contenido" href="add_content.html">Publicar</a></li>
+                    <li class="menuli"><a title="Sobre nosotros" href="index.html">Sobre nosotros</a></li>
+                </ul>
+            </div>
+
+            <div id="box-menu-right">
+                <ul id="menuul">
+                    <li class="menuli" id="menu_login"><a title="Iniciar sesion" href="login.html">Iniciar sesión</a></li>
+                    <li class="menuli" id="menu_salir"><a title="Cerrar sesion" href="log_out">Salir</a></li>
+                </ul>
+            </div>
         </nav>
 <!--        <div style="background-color: #333333; z-index:0; opacity: 0.8; text-align:justify; padding: 0 0; text-decoration:none; color:white; width:300px; height: 100%; position:absolute; z-index: 10; left: 40%; top:0px;">
             <br/>
@@ -52,8 +58,7 @@
             </div>
 
             <div id="LogInScreen">
-                <h2>¿No tienes cuenta?</h2>
-                <h4>¡Crea una ahora mismo!</h4>
+                <h2>Registrar en la base de datos:</h2>
                 <form action="form" method="post" autocomplete="off" onsubmit="comprobar_pass()">
                     Nombre:<br>
                     <input type="text" name="firstname">

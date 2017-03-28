@@ -25,6 +25,17 @@
     background-position: center;
 }
 
+#box-menu-left {
+    position: relative;
+    left: 10%;
+}
+
+#box-menu-right {
+    position: relative;
+    left: 45%;
+    vertical-align:top;
+}
+
 #menuul {
     list-style-type: none;
     margin: 0;
@@ -36,7 +47,7 @@
     visibility: visible;
     border-bottom: solid 2px;
     height: 35px;
-    width: 80%;
+    width: 30%;
     /*border-radius: 10px;*/
 }
 
