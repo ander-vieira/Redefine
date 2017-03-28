@@ -16,7 +16,7 @@
 
 #box-redefine {
     position: relative;
-    left: 45%;
+    left: 47.5%;
     z-index: 20;
     top: calc(var(--main-width) / -4);
     background-image: url(../media/Logo2.gif);
@@ -26,32 +26,57 @@
 }
 
 #box-menu-left {
-    position: relative;
-    left: 10%;
+    position: absolute;
+    left: 5%;
+    width: 45%;
+    height: 35px;
 }
 
 #box-menu-right {
-    position: relative;
-    left: 45%;
-    vertical-align:top;
+    position: absolute;
+    right: 5%;
+    height: 35px;
+    width: 45%;
 }
 
-#menuul {
+#menuul-left {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: auto;
     background-color: #333333;
     opacity: 1;
     flex: 5;
     visibility: visible;
     border-bottom: solid 2px;
     height: 35px;
-    width: 30%;
-    /*border-radius: 10px;*/
+    width: 100%;
+    position: absolute;
 }
 
-#menuul a {
+#menuul-right {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333333;
+    opacity: 1;
+    flex: 5;
+    visibility: visible;
+    border-bottom: solid 2px;
+    height: 35px;
+    width: 100%;
+    position: absolute;
+}
+
+#menuul-right a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+
+#menuul-left a {
     float: left;
     display: block;
     color: white;
@@ -60,7 +85,13 @@
     text-decoration: none;
 }
 
-#menuul a:hover {
+#menuul-right a:hover {
+    animation-name: aparecer;
+    animation-duration: 0.4s;
+    background-color: #30586E;
+}
+
+#menuul-left a:hover {
     animation-name: aparecer;
     animation-duration: 0.4s;
     background-color: #30586E;
@@ -117,7 +148,7 @@
 /*----------------------------------------------*/
 
 #SignUp {
-/*    background-image: url(https://media.giphy.com/media/l3vR1GSc8kQEFBlWU/giphy.gif);*/
+    background-image: url(https://media.giphy.com/media/l3vR1GSc8kQEFBlWU/giphy.gif);
     background-size: auto calc(var(--main-width) / 0.866);
     background-position: center;
 }
@@ -147,13 +178,13 @@
 }
 
 #ZonaIndie {
-/*    background-image: url(https://media.giphy.com/media/l41YchbmuHTURt3X2/giphy.gif);*/
+    background-image: url(https://media.giphy.com/media/l41YchbmuHTURt3X2/giphy.gif);
     background-size: auto calc(var(--main-width) / 0.866);
     background-position: center;
 }
 
 #Actualidad {
-/*    background: url(https://media.giphy.com/media/oCRvrsqpQFtC0/giphy.gif);*/
+    background: url(https://media.giphy.com/media/oCRvrsqpQFtC0/giphy.gif);
     background-size: auto calc(var(--main-width) / 0.866);
     background-position: center;
 }
