@@ -8,14 +8,11 @@ var queries = require('./queries'); //JS encargado de manejar los queries de la 
 module.exports = function(app) {
 
 
-    //Se muestra el index, se usa render, que ya lo definimos en la app express, en el server.
-    app.get('/', function(req, res) {
-        res.sendFile('index.html');
-    });
+    //Se muestra el index solo, no hace falta poner un /
 
     //mandar página de registro
     app.get('/register', function(req, res) {
-        res.sendFile('register.html');
+        res.sendFile(__dirname+'/public/register.html');
     });
 
     //recibir fomulario de registro
@@ -95,7 +92,8 @@ module.exports = function(app) {
     });
 
     //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara al index
-    app.get('*', function(req, res) {
-        res.redirect("/");
+    app.get('/aaa', function(req, res) {
+        //res.redirect("/");
+        //res.sendFile('register.html');
     });
 };
