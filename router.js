@@ -13,8 +13,19 @@ module.exports = function(app) {
         res.sendFile('index.html');
     });
 
-    app.get('/hola', function(req, res) {
-        res.send('Hola mundo!!!!');
+    //mandar página de registro
+    app.get('/register', function(req, res) {
+        res.sendFile('register.html');
+    });
+
+    //recibir fomulario de registro
+    app.post('/register', function(req, res) {
+        var nombre = req.body.email;
+        var pass = req.body.pass;
+        var conf = req.body.conf;
+
+        console.log(nombre, pass, conf);
+        res.redirect("/");
     });
 
     //Mostrara los insultos guardados en la base de datos, en concreto, lo que metemos en el index ("nombre" y "apellido")
@@ -53,13 +64,13 @@ module.exports = function(app) {
 
         //La parte de comprobar si es un nombre valido se hara en un js en el propio navegador, esto es provisional.
           queries.insert_name_entry(nombre, insulto, function() {
-                res.redirect(req.get('referer'));
+                res.redirect("/");
             });
     });
 
     app.get('/delete', function(req, res) {
         queries.delete_name_entries(function() {
-            res.redirect(req.get('referer'));
+            res.redirect("/");
         });
     });
 
@@ -82,9 +93,9 @@ module.exports = function(app) {
         res.clearCookie("redefine");
         res.redirect("/");
     });
-    
+
     //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara al index
     app.get('*', function(req, res) {
-        res.redirect('/');
+        res.redirect("/");
     });
 };
