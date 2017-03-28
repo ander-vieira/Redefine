@@ -4,17 +4,18 @@
 <head>
   <link rel="Stylesheet" href="css/general_style.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="scripts/register.js"></script>
+
+<script src="scripts/register.js"></script>
 </head>
 
 <body>
 
 <h1>Login</h1>
-<form action="register" method="post" onsubmit="comprobar_pass()">
+<form action="register" method="post" onsubmit="return comprobarpass()">
 Email: <br><input id="email" type="text" name="user"><br>
 Contraseña: <br><input id="pass" type="password" name="pass"><br>
 Confirmar contraseña: <br><input id="conf" type="password" name="conf"><br>
-<input id="input" type="submit" value="Registrar">
+<input id="input" type="submit" value="Registrar"><br>
 
 <a href="index.html">Volver al inicio</a>
 

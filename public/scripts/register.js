@@ -1,17 +1,22 @@
-function comprobar_pass()
+function comprobarpass()
 {
-  var pass = document.getElementById("pass").value;
-  var name = document.getElementById("email").value;
-  var conf = document.getElementById("conf").value;
+  var pass = document.getElementById("pass");
+  var name = document.getElementById("email");
+  var conf = document.getElementById("conf");
 
-  if(name == null || name.equals(""))
+  name.style.backgroundColor="#FFFFFF";
+  pass.style.backgroundColor="#FFFFFF";
+  conf.style.backgroundColor="#FFFFFF";
+
+  if(name.value == null || name.value == "")
   {
-    alert("El nombre es obligatorio");
+    name.style.backgroundColor="#FF7777";
     return false;
-  }
-  else
-  {
-    if(pass.equals(conf))
+  } else if(pass.value == null || pass.value == "") {
+    pass.style.backgroundColor="#FF7777";
+    return false;
+  } else {
+    if(pass.value == conf.value)
     {
       return true;
     }
