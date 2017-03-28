@@ -7,9 +7,10 @@ var queries = require('./queries'); //JS encargado de manejar los queries de la 
 
 module.exports = function(app) {
 
+
     //Se muestra el index, se usa render, que ya lo definimos en la app express, en el server.
     app.get('/', function(req, res) {
-        res.render('./public/index.html');
+        res.sendFile('index.html');
     });
 
     app.get('/hola', function(req, res) {
@@ -51,14 +52,9 @@ module.exports = function(app) {
         console.log("Insertando: " + nombre + ":" + insulto);
 
         //La parte de comprobar si es un nombre valido se hara en un js en el propio navegador, esto es provisional.
-        if (nombre !== "") {
-            queries.insert_name_entry(nombre, insulto, function() {
+          queries.insert_name_entry(nombre, insulto, function() {
                 res.redirect(req.get('referer'));
             });
-        } else {
-            res.write("IEPA COLEGA, QUE NO HAS METIDO UN NOMBRE VALIDO !!");
-            res.end();
-        }
     });
 
     app.get('/delete', function(req, res) {

@@ -4,9 +4,6 @@ var cookieParser = require("cookie-parser");
 
 //Creamos y ajustamos el comportamiento de la app Express
 var app = express();
-app.set('views',__dirname);
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
 app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({
     extended: false

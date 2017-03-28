@@ -20,7 +20,7 @@
     z-index: 20;
     top: calc(var(--main-width) / -4);
     background-image: url(../media/Logo2.gif);
-    --main-width: 150px;
+    --main-width: 100px;
     background-size: auto calc((var(--main-width) / 0.866));
     background-position: center;
 }
@@ -37,7 +37,7 @@
     border-bottom: solid 2px;
     height: 35px;
     width: 80%;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
 
 #menuul a {
@@ -81,7 +81,7 @@
 
 #itemMenuCenter {
     position: relative;
-    left: 30%;
+    left: 20%;
     top: auto;
     padding: 30px;
     float: left;
@@ -106,7 +106,7 @@
 /*----------------------------------------------*/
 
 #SignUp {
-    background-image: url(http://tub.tubgit.com/reimg/resize-img.php?src=http://tub.tubgit.com/images249/4drqgwda5wr.jpg&h=450&w=728);
+    background-image: url(https://media.giphy.com/media/l3vR1GSc8kQEFBlWU/giphy.gif);
     background-size: auto calc(var(--main-width) / 0.866);
     background-position: center;
 }
@@ -136,13 +136,13 @@
 }
 
 #ZonaIndie {
-    background-image: url(http://pre07.deviantart.net/4a33/th/pre/i/2013/228/0/f/indie_deer_by_theirishsheep-d6igwcv.jpg);
+    background-image: url(https://media.giphy.com/media/l41YchbmuHTURt3X2/giphy.gif);
     background-size: auto calc(var(--main-width) / 0.866);
     background-position: center;
 }
 
 #Actualidad {
-    background: url(http://k43.kn3.net/taringa/1/0/5/9/7/1/10/roomsz/131.jpg?4897);
+    background: url(https://media.giphy.com/media/oCRvrsqpQFtC0/giphy.gif);
     background-size: auto calc(var(--main-width) / 0.866);
     background-position: center;
 }
