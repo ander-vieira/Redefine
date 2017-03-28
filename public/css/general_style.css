@@ -1,8 +1,5 @@
 body {
-    /*background-image: url("../media/background.jpg");*/
-    background-color: white;
-    /*background-image: url("../media/aaa.png");*/
-    background-position: center;
+    background-image: url("../media/background.jpg");
 }
 
 html, body {

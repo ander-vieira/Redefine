@@ -1,0 +1,23 @@
+Diseño general de la página: fondo, menú de la parte superior, etc.
+NOTA: esto se tiene que aplicar A TODA LA WEB, no solo a la pagina principal...
+
+Páginas de contenido: por ejemplo, "Sobre Nosotros", etc. En algún momento hay que hacerlo.
+
+Log-in: un sistema que compruebe la contraseña consultando a la base de datos.
+
+Registro: lo mismo que el log-in, pero añade una entrada en la base de datos. Lo mínimo es nombre y contraseña.
+
+Sistema para generar el contenido: 
+-Diseño de la BD
+-Interfaz para añadir contenido: add_content.html, pero bien hecho, o incluir en la página inicial?
+-Muro para ver el contenido.
+
+Noticias / novedades: esto puede ser simplemente una cuenta nuestra que publique las noticias como contenido normal... no tiene sentido hacer un sistema de blog solo para eso
+
+Sistema de búsqueda: por categorias (ej. indie, juegos, yo qué sé) o por título o autor.
+
+Página del usuario: un diseño básico con los datos del usuario. La personalización viene después.
+
+Eso es lo más esencial. Añadir más si queréis, pero que sean ESENCIALES.
+
+Lo de los grupos creo que se puede dejar para después de lo esencial, porque está basado casi completamente en los puntos anteriores...
