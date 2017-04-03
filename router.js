@@ -65,6 +65,19 @@ module.exports = function(app) {
             });
     });
 
+    //aqui se mandan los datos de registro
+    app.post('/registerform', function(req, res) {
+        var name = req.body.email;
+        var password = req.body.pass;
+
+        console.log("Registrando: " + name + ":" + password);
+
+        //La parte de comprobar si es un nombre valido se hara en un js en el propio navegador, esto es provisional.
+          queries.register_user(name, password, function() {
+                res.redirect("/");
+            });
+    });
+
     app.get('/delete', function(req, res) {
         queries.delete_name_entries(function() {
             res.redirect("/");

@@ -5,15 +5,17 @@
   <link rel="Stylesheet" href="css/general_style.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="scripts/register.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
 
 <h1>Registration</h1>
-<form action="register" method="post" onsubmit="return comprobarpass()">
+<form action="registerform" method="post" onsubmit="return comprobarpass()">
   Email: <br><input id="email" type="text" name="email"><br>
   Contraseña: <br><input id="pass" type="password" name="pass"><br>
   Confirmar contraseña: <br><input id="conf" type="password" name="conf"><br>
+  <div class="g-recaptcha" data-sitekey="6LcNZxsUAAAAAIfcHrnQ64V0gHgYEmNmI9a3iKtz"></div>
   <input id="input" type="submit" value="Registrar"><br>
 </form>
 <a href="index.html">Volver al inicio</a>
