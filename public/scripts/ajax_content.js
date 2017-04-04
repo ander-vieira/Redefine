@@ -21,7 +21,7 @@ xhttp.onreadystatechange = function() {
             }
             else col3.innerHTML = "Unknown content type";
 
-            tabla.appendChild(tr);
+            content_table.appendChild(tr);
         }
     }
 };

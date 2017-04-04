@@ -4,6 +4,11 @@
     background:#FFFFFF;
 }
 
+#content_scroller {
+    max-height:250px;
+    overflow-y:scroll;
+}
+
 #content_table{
     border:none;
 }

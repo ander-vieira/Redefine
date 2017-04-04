@@ -6,6 +6,7 @@
     <link rel="Stylesheet" href="css/general_style.css" type="text/css">
     <link rel="Stylesheet" href="css/main_menu.css" type="text/css">
     <link rel="Stylesheet" href="css/hexagon.css" type="text/css">
+    <link rel="Stylesheet" href="css/content_box.css" type="text/css">
     <script src="scripts/ajax_login.js"></script>
     <script src="scripts/ajax_content.js"></script>
     <title>RedefineHome</title>
@@ -55,13 +56,17 @@
         </form>
     </div>
 
-    <table id="tabla">
-        <tr>
-            <th>Autor</th>
-            <th>Tipo</th>
-            <th>Mensaje</th>
-        </tr>
-    </table>
+    <div id="content_box">
+        <div id="content_scroller">
+            <table id="content_table">
+                <tr>
+                    <th>Autor</th>
+                    <th>Tipo</th>
+                    <th>Mensaje</th>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
 
 </body>
