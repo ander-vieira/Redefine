@@ -107,12 +107,12 @@ module.exports = function(app) {
                     //Hacer el login
                     console.log("Logged in: "+nombre);
                     queries.insert_cookie(nombre, cookie);
+                    res.cookie("redefine", cookie, {maxAge: 3600000});
                 }
 
                 //Por hacer: si contraseña incorrecta, devolver al formulario con un mensaje o algo
             }
 
-            res.cookie("redefine", cookie, {maxAge: 3600000});
             res.redirect("/");
         });
 
