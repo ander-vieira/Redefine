@@ -87,12 +87,24 @@ module.exports = function(app) {
     app.post('/log_in', function(req, res) {
         var nombre = req.body.user;
         var cookie = Math.random().toString();
+        var correct = false;
         cookie = cookie.substring(2, cookie.length);
 
-        queries.insert_cookie(nombre, cookie);
+        queries.get_user(nombre, function(result) {
+            if(result != null && result.length > 0) {
+                pass = req.body.pass;
+                rightpass = result[0]["pass"];
+                console.log(pass+" == "+rightpass);
+                if(pass == rightpass) {
+                    console.log("Logged in: "+nombre);
+                    queries.insert_cookie(nombre, cookie);
+                }
 
-        res.cookie("redefine", cookie);
-        res.redirect("/");
+                res.cookie("redefine", cookie);
+                res.redirect("/");
+            }
+        });
+
     });
 
     app.get('/log_out', function(req, res) {

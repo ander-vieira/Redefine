@@ -96,6 +96,21 @@ function register_user(nombre, pass, aftercall) {
 
 }
 
+function get_user(nombre, aftercall) {
+  MongoClient.connect(constants.mongourl, function(err, db) {
+    if(!err) {
+      var col = db.collection('users');
+
+      col.find({"_id":nombre}).toArray(function(error, result){
+        if ( error ) console.log ( error );
+        db.close();
+        aftercall(result);
+      });
+    }
+  });
+
+}
+
 
 module.exports.insert_cookie = insert_cookie;
 module.exports.delete_cookie = delete_cookie;
@@ -103,3 +118,4 @@ module.exports.get_session_data = get_session_data;
 module.exports.insert_name_entry = insert_name_entry;
 module.exports.delete_name_entries = delete_name_entries;
 module.exports.register_user = register_user;
+module.exports.get_user = get_user;
