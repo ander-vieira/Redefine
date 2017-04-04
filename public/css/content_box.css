@@ -1,0 +1,21 @@
+#content_box {
+    padding:10px;
+    border-radius:10px;
+    background:#FFFFFF;
+}
+
+#content_table{
+    border:none;
+}
+
+#content_table tr,th,td{
+    border:none;
+    border-collapse:collapse;
+    border-spacing:0;
+    background:inherit;
+    color:inherit;
+}
+
+#content_table tr:hover{
+    background:#FAFAFA;
+}
