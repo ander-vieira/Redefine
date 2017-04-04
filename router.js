@@ -74,6 +74,12 @@ module.exports = function(app) {
 
         //La parte de comprobar si es un nombre valido se hara en un js en el propio navegador, esto es provisional.
           queries.register_user(name, password, function() {
+                //Después de registrar, hace login automáticamente
+                var cookie = Math.random().toString();
+
+                queries.insert_cookie(name, cookie);
+                res.cookie("redefine", cookie);
+
                 res.redirect("/");
             });
     });
@@ -90,19 +96,24 @@ module.exports = function(app) {
         var correct = false;
         cookie = cookie.substring(2, cookie.length);
 
+        //Coge los datos del usuario de la BD
         queries.get_user(nombre, function(result) {
+            //Si el usuario existe
             if(result != null && result.length > 0) {
                 pass = req.body.pass;
                 rightpass = result[0]["pass"];
-                console.log(pass+" == "+rightpass);
+                //Si las contraseñas coinciden
                 if(pass == rightpass) {
+                    //Hacer el login
                     console.log("Logged in: "+nombre);
                     queries.insert_cookie(nombre, cookie);
                 }
 
-                res.cookie("redefine", cookie);
-                res.redirect("/");
+                //Por hacer: si contraseña incorrecta, devolver al formulario con un mensaje o algo
             }
+
+            res.cookie("redefine", cookie);
+            res.redirect("/");
         });
 
     });
