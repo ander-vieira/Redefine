@@ -127,31 +127,33 @@ module.exports = function(app) {
         res.redirect("/");
     });
 
-    app.post('publish', function(req, res) {
+    app.post('/publish', function(req, res) {
         var cookie = req.cookies.redefine;
 
         queries.get_session_data(cookie, function(items) {
-            if(items != null && items.length > 0) {
-                var content;
+            console.log(items);
+            if(items != null) {
+                var content = {};
 
-                content["autor"] = items[0].nombre;
+                content["autor"] = items.nombre;
                 content["tipo"] = req.body.tipo_cont;
-                if(content["tipo"] == "text") {
+                if(content["tipo"] == "texto") {
                     content["texto"] = req.body.texto_valor;
                 }
-
-                if(content["tipo"] == "imagen") {
+                else if(content["tipo"] == "imagen") {
                     content["imagen"] = req.body.imagen_url;
                 }
+
+                console.log(content);
 
                 queries.add_content(content, function() {
                     res.redirect("/");
                 });
             }
         });
-    }
+    });
 
-    app.get('all_content', function(req, res) {
+    app.get('/all_content', function(req, res) {
         queries.get_all_content(function(items) {
             res.send(items);
         });
