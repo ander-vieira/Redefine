@@ -127,6 +127,36 @@ module.exports = function(app) {
         res.redirect("/");
     });
 
+    app.post('publish', function(req, res) {
+        var cookie = req.cookies.redefine;
+
+        queries.get_session_data(cookie, function(items) {
+            if(items != null && items.length > 0) {
+                var content;
+
+                content["autor"] = items[0].nombre;
+                content["tipo"] = req.body.tipo_cont;
+                if(content["tipo"] == "text") {
+                    content["texto"] = req.body.texto_valor;
+                }
+
+                if(content["tipo"] == "imagen") {
+                    content["imagen"] = req.body.imagen_url;
+                }
+
+                queries.add_content(content, function() {
+                    res.redirect("/");
+                });
+            }
+        });
+    }
+
+    app.get('all_content', function(req, res) {
+        queries.get_all_content(function(items) {
+            res.send(items);
+        });
+    });
+
     //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara al index
     app.get('/aaa', function(req, res) {
         //res.redirect("/");
