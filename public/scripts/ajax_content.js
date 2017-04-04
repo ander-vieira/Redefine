@@ -15,9 +15,15 @@ xhttp.onreadystatechange = function() {
             else if(jsonObj[i].tipo == "imagen") {
                 var image = document.createElement("img");
                 image.src = jsonObj[i].imagen;
-                image.width = 200;
-                image.height = 200;
+                image.width = 100;
+                image.height = 100;
                 col3.appendChild(image);
+            }
+            else if(jsonObj[i].tipo == "link") {
+                var link = document.createElement("a");
+                link.href = jsonObj[i].link_url;
+                link.innerHTML = "Enlace";
+                col3.appendChild(link);
             }
             else col3.innerHTML = "Unknown content type";
 

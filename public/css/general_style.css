@@ -57,3 +57,7 @@ input[type="text"], input[type="password"], textarea {
     border-radius: 10px;
     display:none;
 }
+
+#username {
+    display:inline;
+}

@@ -36,11 +36,14 @@
 <div id="page_body">
 <h1>Publicar contenido</h1>
 
+<p>Publicando como: <span id="username">Anónimo</span></p>
+
 <form action="publish" method="POST">
 <p>
 Tipo de contenido:<br>
 Texto <input id="radio1" type="radio" name="tipo_cont" value="texto" checked="true" onchange="change_display();"><br>
 Imagen <input id="radio2" type="radio" name="tipo_cont" value="imagen" onchange="change_display();"><br>
+Enlace <input id="radio3" type="radio" name="tipo_cont" value="link" onchange="change_display();"><br>
 </p>
 <div id="input_texto"><p>
 Contenido del mensaje:<br>
@@ -49,6 +52,10 @@ Contenido del mensaje:<br>
 <div id="input_imagen" style="display:none;"><p>
 URL de la imagen:
 <input type="text" name="imagen_url">
+</p></div>
+<div id="input_link" style="display:none;"><p>
+URL del enlace:
+<input type="text" name="link_url">
 </p></div>
 <p>
 <input type="submit" value="Publicar">

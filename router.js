@@ -137,21 +137,21 @@ module.exports = function(app) {
 
                 content["autor"] = items.nombre;
                 content["tipo"] = req.body.tipo_cont;
+                content["date"] = new Date().toUTCString();
                 if(content["tipo"] == "texto") {
                     content["texto"] = req.body.texto_valor;
                 }
                 else if(content["tipo"] == "imagen") {
                     content["imagen"] = req.body.imagen_url;
                 }
-
-                console.log(content);
+                else if(content["tipo"] == "link") {
+                    content["link_url"] = req.body.link_url;
+                }
 
                 queries.add_content(content, function() {
                     res.redirect("/");
                 });
-            }
-
-            res.redirect("/");
+            } else res.redirect("/");
         });
     });
 
