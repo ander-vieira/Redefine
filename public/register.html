@@ -3,13 +3,40 @@
 
 <head>
   <link rel="Stylesheet" href="css/general_style.css" type="text/css">
+  <link rel="Stylesheet" href="css/main_menu.css" type="text/css">
+  <link rel="Stylesheet" href="css/hexagon.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="scripts/register.js"></script>
+  <script src="scripts/ajax_login.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
+<div><nav>
+    <a href="index.html">
+        <div class="hexagon" id="box-redefine">
+            <div class="hexTop"></div>
+            <div class="hexBottom"></div>
+        </div>
+    </a>
 
+    <div id="box-menu-left">
+        <ul id="menuul-left">
+            <li class="menuli"><a title="Home" href="index.html">Home</a></li>
+            <li class="menuli"><a title="Publicar contenido" href="add_content.html">Publicar</a></li>
+            <li class="menuli"><a title="Sobre nosotros" href="about.html">Sobre nosotros</a></li>
+        </ul>
+    </div>
+
+    <div id="box-menu-right">
+        <ul id="menuul-right">
+            <li class="menuli" id="menu_salir"><a title="Cerrar sesion" href="log_out">Cerrar sesión</a></li>
+            <li class="menuli" id="menu_login"><a title="Iniciar sesion" href="login.html">Iniciar sesión</a></li>
+        </ul>
+    </div>
+</nav></div>
+
+<div style="position:relative; top:20%; float:left;">
 <h1>Registration</h1>
 <form action="registerform" method="post" onsubmit="return comprobarpass()">
   Email: <br><input id="email" type="text" name="email"><br>
@@ -18,7 +45,7 @@
   <div class="g-recaptcha" data-sitekey="6LcNZxsUAAAAAIfcHrnQ64V0gHgYEmNmI9a3iKtz"></div>
   <input id="input" type="submit" value="Registrar"><br>
 </form>
-<a href="index.html">Volver al inicio</a>
+</div>
 
 </body>
 </html>

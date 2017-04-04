@@ -4,41 +4,63 @@
 <head>
     <meta charset="utf-8">
     <link rel="Stylesheet" href="css/general_style.css" type="text/css">
+    <link rel="Stylesheet" href="css/main_menu.css" type="text/css">
+    <link rel="Stylesheet" href="css/hexagon.css" type="text/css">
     <script src="scripts/ajax_login.js"></script>
     <script src="scripts/ajax_tabla.js"></script>
     <title>RedefineHome</title>
 </head>
 
 <body>
-<ul>
-<li id="menu_login"><a href="login.html">Iniciar sesión</a></li>
-<li id="menu_salir" style="display:none"><a href="log_out">Salir</a></li>
-</ul>
+<div><nav>
+    <a href="index.html">
+        <div class="hexagon" id="box-redefine">
+            <div class="hexTop"></div>
+            <div class="hexBottom"></div>
+        </div>
+    </a>
 
-<div id="username">No conectado</div>
+    <div id="box-menu-left">
+        <ul id="menuul-left">
+            <li class="menuli"><a title="Home" href="index.html">Home</a></li>
+            <li class="menuli"><a title="Publicar contenido" href="add_content.html">Publicar</a></li>
+            <li class="menuli"><a title="Sobre nosotros" href="about.html">Sobre nosotros</a></li>
+        </ul>
+    </div>
 
-<div id="LogInScreen">
-    <h2>Registrar en la base de datos:</h2>
-    <form action="form" method="post" autocomplete="off">
-        Nombre:<br>
-        <input type="text" name="firstname">
-        <br>Apellido:<br>
-        <input type="text" name="lastname">
-        <br><br>
-        <input type="submit" value="Unirse">
-    </form>
-    <br>
-    <form action="delete" method="get">
-        <input type="submit" value="Borrar">
-    </form>
+    <div id="box-menu-right">
+        <ul id="menuul-right">
+            <li class="menuli" id="menu_salir"><a title="Cerrar sesion" href="log_out">Cerrar sesión</a></li>
+            <li class="menuli" id="menu_login"><a title="Iniciar sesion" href="login.html">Iniciar sesión</a></li>
+        </ul>
+    </div>
+</nav></div>
+
+<div style="position:relative; top:20%; float:left;">
+    <div id="username">No conectado</div>
+
+    <div id="LogInScreen">
+        <h2>Registrar en la base de datos:</h2>
+        <form action="form" method="post" autocomplete="off">
+            Nombre:<br>
+            <input type="text" name="firstname">
+            <br>Apellido:<br>
+            <input type="text" name="lastname">
+            <br><br>
+            <input type="submit" value="Unirse">
+        </form>
+        <br>
+        <form action="delete" method="get">
+            <input type="submit" value="Borrar">
+        </form>
+    </div>
+
+    <table id="tabla">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+    </table>
 </div>
-
-
-<table id="tabla">
-    <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-    </tr>
-</table>
 
 </body>

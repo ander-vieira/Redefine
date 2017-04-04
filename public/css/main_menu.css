@@ -97,6 +97,10 @@
     background-color: #30586E;
 }
 
+#menu_salir {
+    display:none;
+}
+
 @keyframes aparecer {
     from {
         background-color: #111000;
