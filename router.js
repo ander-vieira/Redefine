@@ -78,7 +78,7 @@ module.exports = function(app) {
                 var cookie = Math.random().toString();
 
                 queries.insert_cookie(name, cookie);
-                res.cookie("redefine", cookie);
+                res.cookie("redefine", cookie, {maxAge: 3600000});
 
                 res.redirect("/");
             });
@@ -112,7 +112,7 @@ module.exports = function(app) {
                 //Por hacer: si contraseña incorrecta, devolver al formulario con un mensaje o algo
             }
 
-            res.cookie("redefine", cookie);
+            res.cookie("redefine", cookie, {maxAge: 3600000});
             res.redirect("/");
         });
 

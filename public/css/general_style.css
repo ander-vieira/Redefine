@@ -30,3 +30,29 @@ h1 {
     color: black;
     text-align: center;
 }
+
+input[type="text"], input[type="password"], textarea {
+    background-color: #7777FF;
+    border:1px solid #0000FF;
+    padding:5px;
+    border-radius:5px;
+}
+
+#page_body {
+    padding:20px;
+    position: relative;
+    top: 20%;
+    float: left;
+    max-width:60%;
+    background-color:#666666;
+    border-radius:20px;
+}
+
+#double_login {
+    padding:10px;
+    float:left top;
+    background-color: #FFAAAA;
+    border: 2px solid #FF0000;
+    border-radius: 10px;
+    display:none;
+}
