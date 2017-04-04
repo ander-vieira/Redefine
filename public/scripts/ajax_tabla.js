@@ -19,19 +19,3 @@ xhttp.onreadystatechange = function() {
 xhttp.open("GET", "/insultos", true);
 xhttp.send();
 
-var xhttp2 = new XMLHttpRequest();
-
-xhttp2.onreadystatechange = function() {
-    if(this.readyState==4 && this.status==200) {
-        var jsonObj2 = JSON.parse(this.responseText);
-
-        document.getElementById("menu_login").style.display = "none";
-        document.getElementById("menu_salir").style.display = "block";
-
-        document.getElementById("username").innerHTML = jsonObj2.nombre;
-    }
-};
-
-xhttp2.open("GET", "/nombre", true);
-xhttp2.send();
-
