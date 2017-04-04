@@ -111,6 +111,41 @@ function get_user(nombre, aftercall) {
 
 }
 
+function add_content(content, aftercall) {
+  MongoClient.connect(constants.mongourl, function(err, db) {
+    if(!err) {
+      var col = db.collection('content');
+
+      col.insert(content,function(error, result){
+        if ( error ) console.log ( error );
+        db.close();
+      });
+      //tiene que hacer un aftercall para que te mande a algun sitio
+      aftercall();
+    }
+  });
+}
+
+function get_all_content(aftercall) {
+  MongoClient.connect(constants.mongourl, function(err, db)
+  {
+    if(err)
+    {console.log("ha habido un error");}
+    else
+    {
+      var col = db.collection('content');
+      col.find({}).toArray(function(err, items)
+      {
+        if(err)
+        {console.log("error, ha cascao")}
+        else{
+          aftercall(items);
+        }
+        db.close();
+      });
+    }
+  });
+}
 
 module.exports.insert_cookie = insert_cookie;
 module.exports.delete_cookie = delete_cookie;
@@ -119,3 +154,5 @@ module.exports.insert_name_entry = insert_name_entry;
 module.exports.delete_name_entries = delete_name_entries;
 module.exports.register_user = register_user;
 module.exports.get_user = get_user;
+module.exports.add_content = add_content;
+module.exports.get_all_content = get_all_content;
