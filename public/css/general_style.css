@@ -46,6 +46,8 @@ input[type="text"], input[type="password"], textarea {
     float: left;
     max-width:60%;
     background-color:#666666;
+    box-sizing:border-box;
+    border:3px double #6F6F6F;
     border-radius:20px;
 }
 

@@ -1,0 +1,37 @@
+#user_page {
+    background:none;
+    border:none;
+}
+
+#user_page tr, td, th {
+    border:none;
+    text-align:center;
+}
+
+#user_page_avatar {
+    width:80px;
+    height:80px;
+}
+
+#user_page_avatar img {
+    width: 64px;
+    height:64px;
+}
+
+#user_page_title {
+    text-align:left;
+}
+
+#user_page_title h1 {
+    font-weight:bold;
+    font-size:16pt;
+    color: #00007F;
+}
+
+#user_page_description {
+    border:3px double #EEEEEE;
+    width:300px;
+    max-width:300px;
+    min-height:200px;
+    background-color:#FFFFFF;
+}

@@ -180,10 +180,12 @@ module.exports = function(app) {
             //Leer los datos del usuario (provisional)
             var username = "Usuario";
             var user_avatar = "/media/avatar.png";
+            var user_description = "En un lugar muy <b>lejano</b> de cuyo nombre no quiero acordarne, ...";
 
             //Modificar la plantilla con los datos
-            data = data.replace(":user", "<h1>" + username + "</h1>");
-            data = data.replace(":avatar", "<img src=\""+user_avatar+"\">");
+            data = data.replace(":user", username);
+            data = data.replace(":avatar", user_avatar);
+            data = data.replace(":description", user_description);
 
             res.send(data);
         });
