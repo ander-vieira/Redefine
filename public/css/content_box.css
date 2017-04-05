@@ -24,3 +24,27 @@
 #content_table tr:hover{
     background:#FAFAFA;
 }
+
+#content_tabs {
+    height: 40px;
+}
+
+.content_tab {
+    float:bottom;
+    height:30px;
+    width: 60px;
+    box-sizing: border-box;
+    border-radius: 5px 5px 0 0;
+    border: 2px solid white;
+    border-bottom: 2px solid #7F7F7F;
+    background-color:#BFBFFF;
+    text-align: center;
+}
+
+.content_tab h1{
+    font-weight: bold;
+    font-size: 8pt;
+    color: white;
+    display:inline-block;
+    vertical-align: middle;    
+}
