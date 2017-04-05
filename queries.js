@@ -147,6 +147,27 @@ function get_all_content(aftercall) {
   });
 }
 
+function get_user_content(nombre, aftercall) {
+  MongoClient.connect(constants.mongourl, function(err, db)
+  {
+    if(err)
+    {console.log("ha habido un error");}
+    else
+    {
+      var col = db.collection('content');
+      col.find({"autor":nombre}).toArray(function(err, items)
+      {
+        if(err)
+        {console.log("error, ha cascao")}
+        else{
+          aftercall(items);
+        }
+        db.close();
+      });
+    }
+  });
+}
+
 module.exports.insert_cookie = insert_cookie;
 module.exports.delete_cookie = delete_cookie;
 module.exports.get_session_data = get_session_data;
@@ -156,3 +177,4 @@ module.exports.register_user = register_user;
 module.exports.get_user = get_user;
 module.exports.add_content = add_content;
 module.exports.get_all_content = get_all_content;
+module.exports.get_user_content = get_user_content;

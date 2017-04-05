@@ -64,6 +64,8 @@ function click_new_tab() {
 function click_my_tab() {
     reset_tag_bg();
     document.getElementById("my_tab").style.backgroundColor = "#3333FF";
+
+    add_content("/my_content");
 }
 
 

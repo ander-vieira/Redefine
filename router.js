@@ -131,7 +131,6 @@ module.exports = function(app) {
         var cookie = req.cookies.redefine;
 
         queries.get_session_data(cookie, function(items) {
-            console.log(items);
             if(items != null) {
                 var content = {};
 
@@ -158,6 +157,19 @@ module.exports = function(app) {
     app.get('/all_content', function(req, res) {
         queries.get_all_content(function(items) {
             res.send(items);
+        });
+    });
+
+    app.get('/my_content', function(req, res) {
+        var nombre;
+        var cookie = req.cookies.redefine;
+
+        queries.get_session_data(cookie, function(session) {
+            if(session!=null) nombre = session.nombre;
+            else nombre = "";
+            queries.get_user_content(nombre, function(items) {
+                res.send(items);
+            });
         });
     });
 

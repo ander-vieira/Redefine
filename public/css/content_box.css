@@ -32,10 +32,10 @@
 #content_tabs table{
     margin-left:0px;
     border:none;
+    border-spacing: 0px;
 }
 
 .content_tab {
-    float:bottom;
     height:30px;
     width: 80px;
     box-sizing: border-box;
