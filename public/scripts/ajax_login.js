@@ -17,6 +17,9 @@ xhttp.onreadystatechange = function() {
         element = document.getElementById("rightmenu");
         if(element != null) element.style.display = "block";
 
+        element = document.getElementById("rightmenu_user");
+        if(element != null) element.innerHTML = jsonObj2.nombre;
+
         element = document.getElementById("username");
         if(element != null) element.innerHTML = jsonObj2.nombre;
 
@@ -24,6 +27,7 @@ xhttp.onreadystatechange = function() {
         if(element != null)
             for(var i = 0 ; i < element.length ; i++) {
                 element[i].href = "/user/"+jsonObj2.nombre;
+                element[i].style.display = "inline";
             }
     }
 };

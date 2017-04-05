@@ -7,7 +7,11 @@ xhttp.onreadystatechange = function() {
         for(i = 0 ; i < jsonObj.length ; i++) {
             var tr = document.createElement("tr");
             var col1 = tr.insertCell(0);
-            col1.innerHTML = jsonObj[i].autor;
+            var lautor = document.createElement("a");
+            window.alert(jsonObj[i].autor);
+            lautor.href = "/user/"+jsonObj[i].autor;
+            lautor.innerHTML = jsonObj[i].autor;
+            col1.appendChild(lautor);
             var col2 = tr.insertCell(1);
             col2.innerHTML = jsonObj[i].tipo;
             var col3 = tr.insertCell(2);
