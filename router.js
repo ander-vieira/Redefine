@@ -176,24 +176,32 @@ module.exports = function(app) {
 
     //Devuelve un html modificado
     app.get('/user/:username', function(req, res) {
-        fs.readFile('public/user_template.html', 'utf8', function(err, data) {
-            //Leer los datos del usuario (provisional)
-            var username = "Usuario";
-            var user_avatar = "/media/avatar.png";
-            var user_description = "En un lugar muy <b>lejano</b> de cuyo nombre no quiero acordarne, ...";
+        var nombre = req.params.username;
 
-            //Modificar la plantilla con los datos
-            data = data.replace(":user", username);
-            data = data.replace(":avatar", user_avatar);
-            data = data.replace(":description", user_description);
+        //Coge los datos del usuario de la BD
+        queries.get_user(nombre, function(result) {
+            //Si el usuario existe
+            if(result != null && result.length > 0) {
+                fs.readFile('public/user_template.html', 'utf8', function(err, data) {
+                    //Leer los datos del usuario
+                    var user_avatar = result[0]["avatar"];
+                    var user_description = result[0]["description"];
 
-            res.send(data);
+                    //Modificar la plantilla con los datos
+                    data = data.replace(":user", nombre);
+                    data = data.replace(":avatar", user_avatar);
+                    data = data.replace(":description", user_description);
+
+                    res.send(data);
+                });
+            }
+            else res.redirect("/error.html");
         });
+
     });
 
-    //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara al index
+    //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara a la pagina de error
     app.get('/aaa', function(req, res) {
-        //res.redirect("/");
-        //res.sendFile('register.html');
+        res.redirect("/error.html");
     });
 };

@@ -85,7 +85,7 @@ function register_user(nombre, pass, aftercall) {
     if(!err) {
       var col = db.collection('users');
 
-      col.insert({"_id":nombre,"pass":pass},function(error, result){
+      col.insert({"_id":nombre,"pass":pass,"avatar":constants.def_avatar,"description":constants.def_description},function(error, result){
         if ( error ) console.log ( error );
         db.close();
       });
