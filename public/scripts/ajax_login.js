@@ -14,6 +14,9 @@ xhttp.onreadystatechange = function() {
         element = document.getElementById("double_login");
         if(element != null) element.style.display = "block";
 
+        element = document.getElementById("rightmenu");
+        if(element != null) element.style.display = "block";
+
         element = document.getElementById("username");
         if(element != null) element.innerHTML = jsonObj2.nombre;
     }

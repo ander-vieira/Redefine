@@ -1,11 +1,12 @@
 /*Container for the menu: fixes position on screen*/
-.rightmenu {	
+#rightmenu {	
 	position:fixed;
         z-index:3;
 	top:25%;
 	right:0;
 	height:50%;
 	transition:.3s ease;
+	display:none;
 }
 
 /*The always visible tab*/
@@ -38,7 +39,7 @@
 	text-align:center;
 }
 
-.rightmenu:hover {
+#rightmenu:hover {
 	transition:.5s ease;/*Smooth animation*/
 	display:block;/*Not really necessary*/
 	right:100px;/*Move the menu to the left*/
