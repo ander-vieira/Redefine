@@ -1,0 +1,81 @@
+/*Container for the menu: fixes position on screen*/
+.rightmenu {	
+	position:fixed;
+        z-index:3;
+	top:25%;
+	right:0;
+	height:50%;
+	transition:.3s ease;
+}
+
+/*The always visible tab*/
+.rightmenu_tab {
+	position:fixed;
+	top:inherit;/*These three are needed so it appears at the right spot*/
+	height:inherit;
+	right:inherit;
+	margin-right:0;
+	background-color:#AAAAFF;
+	background-clip: padding-box;/*Background doesn't cover transparent borders*/
+	border: 3px solid rgba(0.4,0.4,0.4,0.6);/*Transparent border*/
+	border-right:none;/*Right side has no border*/
+        border-radius:10px 0 0 10px;/*Order: upper-left, upper-right, lower-right, lower-left*/
+	min-width: 14px;
+	display:block;
+	box-sizing:border-box;/*Box size includes borders*/
+}
+
+/*The part that shows on hover*/
+.rightmenu_display {
+	position:fixed;
+	top:inherit;
+	height:inherit;
+	right:inherit;
+	margin-right:-100px;/*This is normally OUTSIDE the screen*/
+	min-width:100px;
+	background-color:rgba(0.4,0.4,0.4,0.6);/*Transparent background*/
+	color:#FFFFFF;
+	text-align:center;
+}
+
+.rightmenu:hover {
+	transition:.5s ease;/*Smooth animation*/
+	display:block;/*Not really necessary*/
+	right:100px;/*Move the menu to the left*/
+}
+
+.rightmenu_table {
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	border-spacing:0 10;
+	color:inherit;
+	background:transparent;
+	border:none;
+}
+
+.rightmenu_table table, tr, th, td {
+	background:transparent;
+	border:none;
+}
+
+.rightmenu_logo {
+	border:2px solid black;
+}
+
+.rightmenu_display img {
+	width:40px;
+	height:40px;
+}
+
+.rightmenu_display h1 {
+	font-size:9pt;
+	font-weight:normal;
+	color:inherit;
+}
+
+#rightmenu_user {
+	color:inherit;
+}
+
