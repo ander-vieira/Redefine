@@ -2,6 +2,7 @@
 //diferentes peticiones que pueda hacer el usuario.
 
 var MongoClient = require('mongodb').MongoClient;
+var fs = require('fs');
 var constants = require('./constants'); //URL a mongo "mongodb://localhost:27017/prueba"
 var queries = require('./queries'); //JS encargado de manejar los queries de la base de datos
 
@@ -170,6 +171,21 @@ module.exports = function(app) {
             queries.get_user_content(nombre, function(items) {
                 res.send(items);
             });
+        });
+    });
+
+    //Devuelve un html modificado
+    app.get('/user/:username', function(req, res) {
+        fs.readFile('public/user_template.html', 'utf8', function(err, data) {
+            //Leer los datos del usuario (provisional)
+            var username = "Usuario";
+            var user_avatar = "/media/avatar.png";
+
+            //Modificar la plantilla con los datos
+            data = data.replace(":user", "<h1>" + username + "</h1>");
+            data = data.replace(":avatar", "<img src=\""+user_avatar+"\">");
+
+            res.send(data);
         });
     });
 
