@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="Stylesheet" href="css/general_style.css" type="text/css">
-    <link rel="Stylesheet" href="css/main_menu.css" type="text/css">
-    <link rel="Stylesheet" href="css/hexagon.css" type="text/css">
-    <link rel="Stylesheet" href="css/content_box.css" type="text/css">
-    <link rel="Stylesheet" href="css/rightmenu.css" type="text/css">
-    <script src="scripts/ajax_login.js"></script>
-    <script src="scripts/content_box_tabs.js"></script>
+    <link rel="Stylesheet" href="/css/general_style.css" type="text/css">
+    <link rel="Stylesheet" href="/css/main_menu.css" type="text/css">
+    <link rel="Stylesheet" href="/css/hexagon.css" type="text/css">
+    <link rel="Stylesheet" href="/css/content_box.css" type="text/css">
+    <link rel="Stylesheet" href="/css/rightmenu.css" type="text/css">
+    <script src="/scripts/ajax_login.js"></script>
+    <script src="/scripts/content_box_tabs.js"></script>
     <title>RedefineHome</title>
 </head>
 
@@ -21,19 +21,19 @@
   <div class="rightmenu_display">
     <table class="rightmenu_table">
       <tr><td>
-        <h1><span id="rightmenu_user">No conectado</span></h1>
-        <img class="rightmenu_logo" src="media/avatar.png">
+        <h1><a href="#" class="user_page_link"><span id="rightmenu_user">No conectado</span></a></h1>
+        <img class="rightmenu_logo" src="/media/avatar.png">
       </td></tr>
       <tr><td>
         <h1>Settings</h1>
-        <img src="media/settings.png">
+        <img src="/media/settings.png">
       </td></tr>
     </table>
   </div> 
 </div>
 
 <div><nav>
-    <a href="index.html">
+    <a href="/index.html">
         <div class="hexagon" id="box-redefine">
             <div class="hexTop"></div>
             <div class="hexBottom"></div>
@@ -42,16 +42,16 @@
 
     <div id="box-menu-left">
         <ul id="menuul-left">
-            <li class="menuli"><a title="Home" href="index.html">Home</a></li>
-            <li class="menuli"><a title="Publicar contenido" href="add_content.html">Publicar</a></li>
-            <li class="menuli"><a title="Sobre nosotros" href="about.html">Sobre nosotros</a></li>
+            <li class="menuli"><a title="Home" href="/index.html">Home</a></li>
+            <li class="menuli"><a title="Publicar contenido" href="/add_content.html">Publicar</a></li>
+            <li class="menuli"><a title="Sobre nosotros" href="/about.html">Sobre nosotros</a></li>
         </ul>
     </div>
 
     <div id="box-menu-right">
         <ul id="menuul-right">
-            <li class="menuli" id="menu_salir"><a title="Cerrar sesion" href="log_out">Cerrar sesión</a></li>
-            <li class="menuli" id="menu_login"><a title="Iniciar sesion" href="login.html">Iniciar sesión</a></li>
+            <li class="menuli" id="menu_salir"><a title="Cerrar sesion" href="/log_out">Cerrar sesión</a></li>
+            <li class="menuli" id="menu_login"><a title="Iniciar sesion" href="/login.html">Iniciar sesión</a></li>
         </ul>
     </div>
 </nav></div>
@@ -61,7 +61,7 @@
 
     <div id="LogInScreen">
         <h2>Registrar en la base de datos:</h2>
-        <form action="form" method="post" autocomplete="off">
+        <form action="/form" method="post" autocomplete="off">
             Nombre:<br>
             <input type="text" name="firstname">
             <br>Apellido:<br>

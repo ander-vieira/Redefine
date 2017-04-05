@@ -19,6 +19,12 @@ xhttp.onreadystatechange = function() {
 
         element = document.getElementById("username");
         if(element != null) element.innerHTML = jsonObj2.nombre;
+
+        element = document.getElementsByClassName("user_page_link");
+        if(element != null)
+            for(var i = 0 ; i < element.length ; i++) {
+                element[i].href = "/user/"+jsonObj2.nombre;
+            }
     }
 };
 
