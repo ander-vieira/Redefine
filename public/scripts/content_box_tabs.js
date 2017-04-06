@@ -1,3 +1,7 @@
+var content_page_size;
+var content_initial_page = 3;
+var current_tab;
+
 function reset_tag_bg() {
     var list = document.getElementsByClassName("content_tab");
 
@@ -13,6 +17,11 @@ function empty_content_box() {
     }
 }
 
+function see_more_content() {
+    content_page_size += content_initial_page;
+    add_content(current_tab);
+}
+
 function add_content(service) {
     var xhttp = new XMLHttpRequest();
 
@@ -22,7 +31,12 @@ function add_content(service) {
 
             empty_content_box();
 
-            for(i = 0 ; i < jsonObj.length ; i++) {
+            if(content_page_size < jsonObj.length)
+                document.getElementById("content_see_more").style.display = "inline";
+            else
+                document.getElementById("content_see_more").style.display = "none";
+
+            for(i = 0 ; i < jsonObj.length && i < content_page_size ; i++) {
                 var tr = document.createElement("tr");
                 var col1 = tr.insertCell(0);
                 var lautor = document.createElement("a");
@@ -62,6 +76,8 @@ function click_new_tab() {
     reset_tag_bg();
     document.getElementById("new_tab").style.backgroundColor = "#3333FF";
 
+    content_page_size = content_initial_page;
+    current_tab = "all_content";
     add_content("/all_content");
 }
 
@@ -69,6 +85,8 @@ function click_my_tab() {
     reset_tag_bg();
     document.getElementById("my_tab").style.backgroundColor = "#3333FF";
 
+    content_page_size = content_initial_page;
+    current_tab = "my_content";
     add_content("/my_content");
 }
 
