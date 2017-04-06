@@ -111,6 +111,21 @@ function get_user(nombre, aftercall) {
 
 }
 
+function set_user_data(nombre, avatar, description, aftercall) {
+  MongoClient.connect(constants.mongourl, function(err, db) {
+    if(!err) {
+      var col = db.collection('users');
+
+      col.update({"_id":nombre}, {$set: {"avatar":avatar, "description":description}}, function(error, result){
+        if ( error ) console.log ( error );
+        db.close();
+        aftercall();
+      });
+    }
+  });
+
+}
+
 function add_content(content, aftercall) {
   MongoClient.connect(constants.mongourl, function(err, db) {
     if(!err) {
@@ -175,6 +190,7 @@ module.exports.insert_name_entry = insert_name_entry;
 module.exports.delete_name_entries = delete_name_entries;
 module.exports.register_user = register_user;
 module.exports.get_user = get_user;
+module.exports.set_user_data = set_user_data;
 module.exports.add_content = add_content;
 module.exports.get_all_content = get_all_content;
 module.exports.get_user_content = get_user_content;

@@ -17,6 +17,9 @@ xhttp.onreadystatechange = function() {
         element = document.getElementById("rightmenu");
         if(element != null) element.style.display = "block";
 
+        element = document.getElementById("user_page_edit");
+        if(element != null && element.dataset.uname == jsonObj2.nombre) element.style.display = "inline";
+
         element = document.getElementById("rightmenu_user");
         if(element != null) element.innerHTML = jsonObj2.nombre;
 

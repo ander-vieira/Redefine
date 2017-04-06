@@ -188,7 +188,7 @@ module.exports = function(app) {
                     var user_description = result[0]["description"];
 
                     //Modificar la plantilla con los datos
-                    data = data.replace(":user", nombre);
+                    data = data.replace(/:user/g, nombre);
                     data = data.replace(":avatar", user_avatar);
                     data = data.replace(":description", user_description);
 
@@ -198,6 +198,24 @@ module.exports = function(app) {
             else res.redirect("/error.html");
         });
 
+    });
+
+    app.post("/modify_user", function(req, res) {
+        var cookie = req.cookies.redefine;
+
+        queries.get_session_data(cookie, function(items) {
+            if(items != null) {
+                var nombre = items.nombre;
+                var avatar = req.body.avatar;
+                var description = req.body.description;
+
+                queries.set_user_data(nombre, avatar, description, function() {
+                    res.redirect("/user/"+nombre);
+                });
+            } else {
+                res.redirect("/error.html");
+            }
+         });
     });
 
     //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara a la pagina de error

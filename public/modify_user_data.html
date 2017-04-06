@@ -1,10 +1,9 @@
 <html>
 <head>
-<title>Redefine - Sobre nosotros</title>
+<title>Publicar contenido</title>
 <link rel="stylesheet" href="/css/general_style.css" type="text/css">
 <link rel="stylesheet" href="/css/main_menu.css" type="text/css">
 <link rel="stylesheet" href="/css/hexagon.css" type="text/css">
-<link rel="stylesheet" href="/css/user_page.css" type="text/css">
 <script src="/scripts/ajax_login.js"></script>
 </head>
 <body>
@@ -34,20 +33,17 @@
 </nav></div>
 
 <div id="page_body">
-    <table id="user_page"><tr>
-        <td id="user_page_avatar">
-            <img src=":avatar">
-        </td>
+<h1>Publicar contenido</h1>
 
-        <td id="user_page_title">
-            <h1>:user</h1>
-        </td>
-    </tr><tr>
-        <td id="user_page_description" colspan=2>
-            :description
-        </td>
-    </tr></table>
-    <a id="user_page_edit" href="/modify_user_data.html" data-uname=":user">Editar</a>
+<p>Editando los datos de: <span id="username">Anónimo</span></p>
+
+<form action="/modify_user" method="POST">
+<p>
+<input type="text" name="avatar"><br>
+<textarea name="description" cols=30 rows=10>Inserte su descripción aquí</textarea><br>
+<input type="submit" value="Publicar">
+</p>
+</form>
 </div>
 
 </body>

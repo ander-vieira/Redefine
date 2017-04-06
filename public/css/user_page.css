@@ -35,3 +35,8 @@
     min-height:200px;
     background-color:#FFFFFF;
 }
+
+#user_page_edit {
+    font-weight:bold;
+    display:none;
+}
