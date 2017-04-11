@@ -4,7 +4,9 @@
 <link rel="stylesheet" href="/css/general_style.css" type="text/css">
 <link rel="stylesheet" href="/css/main_menu.css" type="text/css">
 <link rel="stylesheet" href="/css/hexagon.css" type="text/css">
+<link rel="stylesheet" href="/css/user_page.css" type="text/css">
 <script src="/scripts/ajax_login.js"></script>
+<script src="/scripts/modify_upage_dyn.js"></script>
 </head>
 <body>
 
@@ -37,13 +39,15 @@
 
 <p>Editando los datos de: <span id="username">Anónimo</span></p>
 
-<form action="/modify_user" method="POST">
+<form action="/modify_user" method="POST" onsubmit="return check_form_data()">
 <p>
-<input type="text" name="avatar"><br>
-<textarea name="description" cols=30 rows=10>Inserte su descripción aquí</textarea><br>
+<input type="text" id="avatar_input" name="avatar" oninput="test_image()"><br>
+<textarea name="description" id="desc_input" cols=30 rows=10>Inserte su descripción aquí</textarea><br>
 <input type="submit" value="Publicar">
 </p>
 </form>
+
+<div id="avatar_dyn"></div>
 </div>
 
 </body>
