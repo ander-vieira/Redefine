@@ -67,7 +67,7 @@ function get_prev_values() {
         }
     };
 
-    xhttp.open("GET", "/user_data", true);
+    xhttp.open("GET", "/my_user_data", true);
 
     xhttp.send();
 }

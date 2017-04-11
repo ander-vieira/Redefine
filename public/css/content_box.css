@@ -57,3 +57,8 @@
 #content_see_more {
     display:none;
 }
+
+.content_avatar{
+    width:40px;
+    height:40px;
+}

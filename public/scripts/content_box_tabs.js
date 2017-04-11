@@ -22,6 +22,25 @@ function see_more_content() {
     add_content(current_tab);
 }
 
+function get_user_avatar(nombre, callback) {
+    var xhttp1 = new XMLHttpRequest();
+    var params = JSON.stringify({"nombre":nombre});
+
+    xhttp1.open("POST", "/user_data", true);
+
+    xhttp1.setRequestHeader("Content-type", "application/json; charset=utf-8");
+    xhttp1.setRequestHeader("Content-length", params.length);
+
+    xhttp1.onreadystatechange = function() {
+        if(this.readyState==4 && this.status==200) {
+            var jsonObj2 = JSON.parse(this.responseText);
+            callback(jsonObj2.avatar);
+        }
+    };
+
+    xhttp1.send(params);
+}
+
 function add_content(service) {
     var xhttp = new XMLHttpRequest();
 
@@ -44,6 +63,15 @@ function add_content(service) {
                 lautor.target = "blank";
                 lautor.innerHTML = jsonObj[i].autor;
                 col1.appendChild(lautor);
+                col1.appendChild(document.createElement("br"));
+
+                get_user_avatar(jsonObj[i].autor, function(avatar) {
+                    var img = document.createElement("img");
+                    img.src = avatar;
+                    img.className += "content_avatar";
+                    col1.appendChild(img);
+                });
+
                 var col2 = tr.insertCell(1);
                 col2.innerHTML = jsonObj[i].tipo;
                 var col3 = tr.insertCell(2);

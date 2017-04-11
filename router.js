@@ -218,7 +218,7 @@ module.exports = function(app) {
          });
     });
 
-    app.get('/user_data', function(req, res) {
+    app.get('/my_user_data', function(req, res) {
         var cookie = req.cookies.redefine;
 
         queries.get_session_data(cookie, function(items) {
@@ -226,6 +226,17 @@ module.exports = function(app) {
                 if(result != null || result.length > 0)
                     res.send(result[0]);
             });
+        });
+    });
+
+    app.post('/user_data', function(req, res) {
+        console.log(req.body);
+
+        var nombre = req.body.nombre;
+
+        queries.get_user(nombre, function(result) {
+            if(result != null || result.length > 0)
+                res.send(result[0]);
         });
     });
 
