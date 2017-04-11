@@ -22,7 +22,7 @@ function see_more_content() {
     add_content(current_tab);
 }
 
-function get_user_avatar(nombre, callback) {
+function get_user_avatar(nombre, img) {
     var xhttp1 = new XMLHttpRequest();
     var params = JSON.stringify({"nombre":nombre});
 
@@ -34,7 +34,7 @@ function get_user_avatar(nombre, callback) {
     xhttp1.onreadystatechange = function() {
         if(this.readyState==4 && this.status==200) {
             var jsonObj2 = JSON.parse(this.responseText);
-            callback(jsonObj2.avatar);
+            img.src = jsonObj2.avatar;
         }
     };
 
@@ -65,12 +65,10 @@ function add_content(service) {
                 col1.appendChild(lautor);
                 col1.appendChild(document.createElement("br"));
 
-                get_user_avatar(jsonObj[i].autor, function(avatar) {
-                    var img = document.createElement("img");
-                    img.src = avatar;
-                    img.className += "content_avatar";
-                    col1.appendChild(img);
-                });
+                var img = document.createElement("img");
+                img.className += "content_avatar";
+                get_user_avatar(jsonObj[i].autor, img);
+                col1.appendChild(img);
 
                 var col2 = tr.insertCell(1);
                 col2.innerHTML = jsonObj[i].tipo;
