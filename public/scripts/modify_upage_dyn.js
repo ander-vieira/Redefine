@@ -61,9 +61,9 @@ function get_prev_values() {
             var data = JSON.parse(this.responseText);
 
             document.getElementById("avatar_input").value = data.avatar;
-            document.getElementById("desc_input").value = data.desc;
+            document.getElementById("desc_input").innerHTML = data.description;
         }
-    });
+    };
 
     xhttp.open("GET", "/user_data", true);
 
@@ -71,7 +71,7 @@ function get_prev_values() {
 }
 
 window.onload = function() {
-    test_image();
+    get_prev_values();
 
-//    get_prev_values();
+    test_image();
 };

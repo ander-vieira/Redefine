@@ -218,6 +218,17 @@ module.exports = function(app) {
          });
     });
 
+    app.get('/user_data', function(req, res) {
+        var cookie = req.cookies.redefine;
+
+        queries.get_session_data(cookie, function(items) {
+            queries.get_user(items.nombre, function(result) {
+                if(result != null || result.length > 0)
+                    res.send(result[0]);
+            });
+        });
+    });
+
     //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara a la pagina de error
     app.get('/aaa', function(req, res) {
         res.redirect("/error.html");
