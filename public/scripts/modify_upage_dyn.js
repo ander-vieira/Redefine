@@ -36,17 +36,17 @@ function check_form_data() {
     avatar.style.backgroundColor = "#7777FF";
     desc.style.backgroundColor = "#7777FF";
 
-    if(desc.value == null || desc.value == "")
-    {
-        alert("Invalid description");
-        desc.style.backgroundColor = "#FF7777";
-        return false;
-    }
-
     if(avatar.value == null || avatar.value == "" || valid_img == false)
     {
         alert("Invalid avatar");
         avatar.style.backgroundColor = "#FF7777";
+        return false;
+    }
+
+    if(desc.value == null || desc.value == "")
+    {
+        alert("Invalid description");
+        desc.style.backgroundColor = "#FF7777";
         return false;
     }
 
@@ -62,6 +62,8 @@ function get_prev_values() {
 
             document.getElementById("avatar_input").value = data.avatar;
             document.getElementById("desc_input").innerHTML = data.description;
+
+            test_image();
         }
     };
 
@@ -72,6 +74,4 @@ function get_prev_values() {
 
 window.onload = function() {
     get_prev_values();
-
-    test_image();
 };
