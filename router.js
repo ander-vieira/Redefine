@@ -16,16 +16,6 @@ module.exports = function(app) {
         res.sendFile(__dirname+'/public/register.html');
     });
 
-    //recibir fomulario de registro
-    app.post('/register', function(req, res) {
-        var nombre = req.body.email;
-        var pass = req.body.pass;
-        var conf = req.body.conf;
-
-        console.log(nombre, pass, conf);
-        res.redirect("/");
-    });
-
     //Mostrara los insultos guardados en la base de datos, en concreto, lo que metemos en el index ("nombre" y "apellido")
     app.get('/insultos', function(req, res) {
         MongoClient.connect(constants.mongourl, function(err, db) {
@@ -71,18 +61,41 @@ module.exports = function(app) {
         var name = req.body.email;
         var password = req.body.pass;
 
-        console.log("Registrando: " + name + ":" + password);
+        var request = require('request');
+        var headers = {
+          'User-Agent':       'Super Agent/0.0.1',
+          'Content-Type':     'application/x-www-form-urlencoded'
+        }
+        var options = {
+          url: 'https://www.google.com/recaptcha/api/siteverify',
+          method: 'POST',
+          headers: headers,
+          form: {'secret': '6LeraRsUAAAAAJvyeSUixNZR5k6-k3Jz5ZlD5lSJ', 'response': req.body["g-recaptcha-response"]}
+        }
+        request(options, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+              // Print out the response body
+              body = JSON.parse(body);
+              if(body.success){
+                console.log("Registrando: " + name + ":" + password);
 
-        //La parte de comprobar si es un nombre valido se hara en un js en el propio navegador, esto es provisional.
-          queries.register_user(name, password, function() {
-                //Después de registrar, hace login automáticamente
-                var cookie = Math.random().toString();
+                //La parte de comprobar si es un nombre valido se hara en un js en el propio navegador, esto es provisional.
+                queries.register_user(name, password, function() {
+                  //Después de registrar, hace login automáticamente
+                  var cookie = Math.random().toString();
 
-                queries.insert_cookie(name, cookie);
-                res.cookie("redefine", cookie, {maxAge: 3600000});
+                  queries.insert_cookie(name, cookie);
+                  res.cookie("redefine", cookie, {maxAge: 3600000});
 
-                res.redirect("/");
-            });
+                  res.redirect("/");
+                });
+              }
+            else {
+              console.log("Usuario no registrado, captcha fallido");
+              res.send("Error en el captcha");
+            }
+          }
+        });
     });
 
     app.get('/delete', function(req, res) {
