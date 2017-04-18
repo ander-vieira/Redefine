@@ -76,18 +76,12 @@ module.exports = function(app) {
             if (!error && response.statusCode == 200) {
               // Print out the response body
               body = JSON.parse(body);
-              if(body.success){
-                console.log("Registrando: " + name + ":" + password);
-
+              if(body.success) {
+                console.log("Registrando temporalmente: " + name + ":" + password);
                 //La parte de comprobar si es un nombre valido se hara en un js en el propio navegador, esto es provisional.
-                queries.register_user(name, password, function() {
-                  //Después de registrar, hace login automáticamente
-                  var cookie = Math.random().toString();
+                queries.temporal_registration(name, password, req, function() {
 
-                  queries.insert_cookie(name, cookie);
-                  res.cookie("redefine", cookie, {maxAge: 3600000});
-
-                  res.redirect("/");
+                res.redirect("/");
                 });
               }
             else {
@@ -102,6 +96,19 @@ module.exports = function(app) {
         queries.delete_name_entries(function() {
             res.redirect("/");
         });
+    });
+
+    app.get('/register_user', function(req, res) {
+      var user = req.query.user;
+      var code = req.query.code;
+      queries.register_user(user,code,function() {
+          //Después de registrar, hace login automáticamente
+          var cookie = Math.random().toString();
+
+          queries.insert_cookie(user, cookie);
+          res.cookie("redefine", cookie, {maxAge: 3600000});
+          res.redirect("/");
+      });
     });
 
     app.post('/log_in', function(req, res) {
