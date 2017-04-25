@@ -1,52 +1,193 @@
 <html>
+
 <head>
-<title>Redefine - Sobre nosotros</title>
-<link rel="stylesheet" href="/css/general_style.css" type="text/css">
-<link rel="stylesheet" href="/css/main_menu.css" type="text/css">
-<link rel="stylesheet" href="/css/hexagon.css" type="text/css">
-<script src="/scripts/ajax_login.js"></script>
+  <title>Redefine - Sobre nosotros</title>
+
+  <link rel="stylesheet" href="/css/main_menu.css" type="text/css">
+  <link rel="stylesheet" href="/css/hexagon.css" type="text/css">
+  <script src="/scripts/ajax_login.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+  <style>
+    #aboutus {
+      background: url(../media/Backgrounds/Fondos/w06.jpg) no-repeat center;
+      background-size: cover;
+      width: 100%;
+      height: 70%;
+      z-index: -1;
+      position:absolute;
+    }
+
+
+    #changer_left {
+      background: url(../media/Icons/left_arrow.png) no-repeat center;
+      background-size: contain;
+      padding-left: 1px;
+      top: 35%;
+      left: 6%;
+    }
+
+    #changer_right {
+      background: url(../media/Icons/right_arrow.png) no-repeat center;
+      background-size: contain;
+      padding-right: 1px;
+      top: 35%;
+      left: 90%;
+    }
+
+    .info_changer {
+      position: absolute;
+      width: 70px;
+      height: 100%;
+      min-width: 50px;
+      min-height: 50px;
+      max-width: 100px;
+      max-height: 100px;
+      opacity: 0.5;
+      -moz-transition: all 0.2s ease-in-out;
+    }
+
+    #changer_right:hover {
+      -moz-transform: rotate(20deg);
+      opacity: 1
+    }
+
+    #changer_left:hover {
+      -moz-transform: rotate(-20deg);
+      opacity: 1
+    }
+
+    .inside_div_centered {
+      width: 30%;
+      height: 100%;
+      margin: 0 auto;
+      text-align: center;
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+    }
+
+    .inside_div_centered p {
+      font-size: 150%;
+    }
+
+    .inside_div_centered h1 {
+      font-size: 200%;
+    }
+  </style>
+
+  <script>
+    titles = [
+      "Bienvenido a Redefine!",
+      "Zona Personal",
+      "Catalogo y Novedades",
+      "Grupos y Clanes"
+    ];
+    infos = [
+      "En Redefine ofrecemos un punto de encuentro para jugadores y desarrolladores.",
+      "En tu zona personal podras subir contenido y compartirlo con la comunidad. Utilizalo para darte a conocer o trabajar en modo privado, tu decides!",
+      "Mira las ultimas novedades en videojuegos, consolas y lanzamientos o visita las ultimas publicaciones de las personas a las que sigues. Descubre lo que te espera en Redefine.",
+      "Si tienes un grupo o un clan y quieres que la gente os conozca Redefine es vuestro hogar. Crea ahora un grupo y empieza a colaborar con otras personas!"
+    ];
+    wallpp = [
+      "url(../media/Backgrounds/Fondos/w01.jpg) no-repeat center",
+      "url(../media/Backgrounds/Fondos/w06.jpg) no-repeat center",
+      "url(../media/Backgrounds/Fondos/w07.jpg) no-repeat center",
+      "url(../media/Backgrounds/Fondos/w05.jpg) no-repeat center"
+    ];
+
+    var actualInfo = 0;
+
+    $(document).ready(function() {
+
+      document.getElementById('infoTitle').innerHTML = titles[0];
+      document.getElementById('infoInfo').innerHTML = infos[0];
+      document.getElementById('aboutus').style.background = wallpp[0];
+
+      $("#changer_left").click(function() {
+
+        actualInfo += -1;
+
+        if (actualInfo < 0) {
+          actualInfo = titles.length - 1;
+        }
+
+        $("#aboutus").animate({
+          opacity: 0.8
+        }, 100, function() {
+          title = document.getElementById('infoTitle').innerHTML = titles[actualInfo];
+          info = document.getElementById('infoInfo').innerHTML = infos[actualInfo];
+          aboutus = document.getElementById('aboutus').style.background = wallpp[actualInfo];
+          $("#aboutus").animate({
+            opacity: 1
+          }, 100);
+        });
+      });
+
+      $("#changer_right").click(function() {
+
+        actualInfo += 1;
+
+        if (actualInfo > titles.length - 1) {
+          actualInfo = 0;
+        }
+
+        $("#aboutus").animate({
+          opacity: 0.8
+        }, 100, function() {
+          title = document.getElementById('infoTitle').innerHTML = titles[actualInfo];
+          info = document.getElementById('infoInfo').innerHTML = infos[actualInfo];
+          aboutus = document.getElementById('aboutus').style.background = wallpp[actualInfo];
+          $("#aboutus").animate({
+            opacity: 1
+          }, 100);
+        });
+      });
+    });
+  </script>
+
+
 </head>
+
 <body>
 
-<div><nav>
-    <a href="/index.html">
+  <div>
+    <nav>
+      <a href="/index.html">
         <div class="hexagon" id="box-redefine">
-            <div class="hexTop"></div>
-            <div class="hexBottom"></div>
+          <div class="hexTop"></div>
+          <div class="hexBottom"></div>
         </div>
-    </a>
+      </a>
 
-    <div id="box-menu-left">
+      <div id="box-menu-left">
         <ul id="menuul-left">
-            <li class="menuli"><a title="Home" href="/index.html">Home</a></li>
-            <li class="menuli"><a title="Publicar contenido" href="/add_content.html">Publicar</a></li>
-            <li class="menuli"><a title="Sobre nosotros" href="/about.html">Sobre nosotros</a></li>
+          <li class="menuli"><a title="Home" href="/index.html">Home</a></li>
+          <li class="menuli"><a title="Publicar contenido" href="/add_content.html">Publicar</a></li>
+          <li class="menuli"><a title="Sobre nosotros" href="#">Sobre nosotros</a></li>
         </ul>
-    </div>
+      </div>
 
-    <div id="box-menu-right">
+      <div id="box-menu-right">
         <ul id="menuul-right">
-            <li class="menuli" id="menu_salir"><a title="Cerrar sesion" href="/log_out">Cerrar sesión</a></li>
-            <li class="menuli" id="menu_login"><a title="Iniciar sesion" href="/login.html">Iniciar sesión</a></li>
+          <li class="menuli" id="menu_salir"><a title="Cerrar sesion" href="/log_out">Cerrar sesión</a></li>
+          <li class="menuli" id="menu_login"><a title="Iniciar sesion" href="/login.html">Iniciar sesión</a></li>
         </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div id="aboutus">
+    <div class="inside_div_centered">
+      <h1 id="infoTitle" style="color:white; ">Sobre Redefine</h1>
+      <p id="infoInfo" style="color:white;">Redefine es un punto de encuentro para jugadores y desarrolladores en el que compartir todo lo relacionado con la informática y los videojuegos.</p>
     </div>
-</nav></div>
+    <div class="info_changer" id="changer_left"></div>
+    <div class="info_changer" id="changer_right"></div>
+  </div>
 
-<div id="page_body">
-    <h1>Sobre Redefine</h1>
-
-    <p>Redefine es un punto de encuentro para jugadores y desarrolladores en el que compartir todo lo relacionado con la informática y los videojuegos.</p>
-
-    <h1>Sobre nosotros</h1>
-    <!-- Esto lo rellenáis vosotros -->
-    <h2>Itziar Arribas</h2>
-    <h2>Aitor Martín</h2>
-    <h2>Aritz Martínez</h2>
-    <h2>Ander Vieira</h2>
-    <img src="/media/ander_vieira.jpg" width=200 height=200><br>
-    Correo electrónico: ander.vieira741@gmail.com<br>
-    
-</div>
 
 </body>
+
 </html>
