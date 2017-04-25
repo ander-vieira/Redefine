@@ -16,7 +16,7 @@
   background-size: contain;
   padding-left: 1px;
   top: 35%;
-  left: 6%;
+  float: left;
 }
 
 #changer_right {
@@ -24,7 +24,7 @@
   background-size: contain;
   padding-right: 1px;
   top: 35%;
-  left: 90%;
+  float: right;
 }
 
 .info_changer {
@@ -85,5 +85,5 @@
 
 .inside_div_centered h1 {
   font-size: 200%;
-  
+
 }
