@@ -15,7 +15,7 @@
       width: 100%;
       height: 70%;
       z-index: -1;
-      position:absolute;
+      position: absolute;
       margin-left: -8px;
       margin-top: -8px;
     }
@@ -47,15 +47,25 @@
       max-height: 100px;
       opacity: 0.5;
       -moz-transition: all 0.2s ease-in-out;
+      -webkit-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
 
     #changer_right:hover {
       -moz-transform: rotate(20deg);
+      -webkit-transition: rotate(20deg);
+      -ms-transform: rotate(20deg);
+      -o-transform: rotate(20deg);
       opacity: 1
     }
 
     #changer_left:hover {
       -moz-transform: rotate(-20deg);
+      -webkit-transition: rotate(-20deg);
+      -ms-transform: rotate(-20deg);
+      -o-transform: rotate(-20deg);
       opacity: 1
     }
 
@@ -68,6 +78,10 @@
       top: 55%;
       left: 50%;
       transform: translate(-50%, -30%);
+      -moz-transform: translate(-50%, -30%);
+      -webkit-transition: translate(-50%, -30%);
+      -ms-transform: translate(-50%, -30%);
+      -o-transform: translate(-50%, -30%);
     }
 
     .inside_div_centered p {
