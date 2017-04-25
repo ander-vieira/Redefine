@@ -5,8 +5,8 @@ var nodemailer = require('nodemailer');
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: '',//correo desde donde se manda
-        pass: ''//contraseña del correo
+        user: 'redefine78@gmail.com',//correo desde donde se manda
+        pass: 'redefine1234'//contraseña del correo
     }
 });
 
