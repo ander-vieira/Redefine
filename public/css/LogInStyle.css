@@ -7,7 +7,7 @@ body {
   float: right;
   width: 40%;
   height: 70%;
-  top: 15%;
+  top: 10%;
   left: 50%;
   margin: 0 auto;
   transform: translate(-50%, 5%);
@@ -29,13 +29,13 @@ body {
 
 #registration_box input {
   width: 60%;
-  height: 40px;
+  height: 100%;
   min-width: 300px;
   max-width: 600px;
   padding: 12px 30px;
   margin: 10px 10px;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 5px solid #FFFFFF;
   border-radius: 5px;
   box-sizing: border-box;
   opacity: 0.8;
@@ -51,6 +51,7 @@ body {
 #registration_box input[type=submit]:hover {
   opacity: 1;
   background-color: #77DD77;
+  border: 5px solid #77DD77;
 }
 
 #registration_box .g-recaptcha {
@@ -59,4 +60,27 @@ body {
   position: relative;
   transform: translate(50%, 0);
   align: center;
+}
+
+#errordiv {
+  position: absolute;
+  width: 400px;
+  height: auto;
+  background-color: #FF4D4D;
+  top: 20%;
+  left: 50%;
+  z-index: 12;
+  transform: translate(-50%, -50%);
+  padding: 20px 20px 20px 20px;
+  border-radius: 5px;
+  border: solid 4px #666666;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  visibility: hidden;
+}
+
+#alert {
+  width: 50%;
+  height:
 }

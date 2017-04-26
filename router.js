@@ -261,7 +261,7 @@ module.exports = function(app) {
     });
 
     //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara a la pagina de error
-    app.get('/aaa', function(req, res) {
+    app.get('*', function(req, res) {
         res.redirect("/error.html");
     });
 };

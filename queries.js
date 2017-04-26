@@ -126,9 +126,9 @@ function temporal_registration(nombre, pass, req, aftercall) {
           let mailOptions = {
               from: '"Redefine" <redefine@gmail.com>', // sender address
               to: nombre, // list of receivers
-              subject: 'Activar cuenta', // Subject line
-              text: 'Clica en el siguiente enlace para activar tu cuenta', // plain text body
-              html: '<p>Clica en el siguiente enlace para activar tu cuenta</p><a href=\"'+url+'\">Activar cuenta/a>' // html body
+              subject: 'Activar cuenta Redefine', // Subject line
+              text: 'Bienvenido a Redefine, esperamos que disfrutes! \nClicka en el siguiente enlace para activar tu cuenta:', // plain text body
+              html: '<p>Bienvenido a Redefine, esperamos que disfrutes!<br/>Clica en el siguiente enlace para activar tu cuenta</p><a href=\"'+url+'\">Activar cuenta/a>' // html body
           };
           transporter.sendMail(mailOptions, (error, info) => {
               if (error) {
