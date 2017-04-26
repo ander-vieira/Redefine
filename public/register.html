@@ -5,47 +5,54 @@
   <link rel="Stylesheet" href="/css/general_style.css" type="text/css">
   <link rel="Stylesheet" href="/css/main_menu.css" type="text/css">
   <link rel="Stylesheet" href="/css/hexagon.css" type="text/css">
+  <link rel="Stylesheet" href="/css/LogInStyle.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="/scripts/register.js"></script>
   <script src="/scripts/ajax_login.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body>
-<div><nav>
-    <a href="/index.html">
+  <div id="mainmenu_container">
+    <nav>
+      <a href="/index.html">
         <div class="hexagon" id="box-redefine">
-            <div class="hexTop"></div>
-            <div class="hexBottom"></div>
+          <div class="hexTop"></div>
+          <div class="hexBottom"></div>
         </div>
-    </a>
+      </a>
 
-    <div id="box-menu-left">
+      <div id="box-menu-left">
         <ul id="menuul-left">
-            <li class="menuli"><a title="Home" href="/index.html">Home</a></li>
-            <li class="menuli"><a title="Publicar contenido" href="/add_content.html">Publicar</a></li>
-            <li class="menuli"><a title="Sobre nosotros" href="/about.html">Sobre nosotros</a></li>
+          <li class="menuli"><a title="Home" href="/index.html">Home</a></li>
+          <li class="menuli"><a title="Publicar contenido" href="/add_content.html">Publicar</a></li>
+          <li class="menuli"><a title="Sobre nosotros" href="/about.html">Sobre nosotros</a></li>
         </ul>
-    </div>
+      </div>
 
-    <div id="box-menu-right">
+      <div id="box-menu-right">
         <ul id="menuul-right">
-            <li class="menuli" id="menu_salir"><a title="Cerrar sesion" href="/log_out">Cerrar sesión</a></li>
-            <li class="menuli" id="menu_login"><a title="Iniciar sesion" href="/login.html">Iniciar sesión</a></li>
+          <li class="menuli" id="menu_salir"><a title="Cerrar sesion" href="/log_out">Cerrar sesión</a></li>
+          <li class="menuli" id="menu_login"><a title="Iniciar sesion" href="/login.html">Iniciar sesión</a></li>
         </ul>
-    </div>
-</nav></div>
+      </div>
+    </nav>
+  </div>
 
-<div id="page_body">
-<h1>Registration</h1>
-<form action="/registerform" method="post" onsubmit="return comprobarpass()">
-  Email: <br><input id="email" type="email" name="email"><br>
-  Contraseña: <br><input id="pass" type="password" name="pass"><br>
-  Confirmar contraseña: <br><input id="conf" type="password" name="conf"><br>
-  <div class="g-recaptcha" data-sitekey="6LeraRsUAAAAAAwB_QDQpWxmQBrUgelDdZ78SBNE"></div>
-  <input id="input" type="submit" value="Registrar"><br>
-</form>
-</div>
+
+  <div id="registration_box">
+    <h1>Estas a un paso de formar parte de Redefine</h1>
+    <form action="/registerform" method="post" onsubmit="return comprobarpass()">
+      <label>Nombre de usuario<br/><input id="username" type="text" name="username"></label><br/>
+      <label>Email<br/><input id="email" type="email" name="email"></label><br/>
+      <label>Password<br/><input id="pass" type="password" name="pass"></label><br/>
+      <label> Confirmar password<br/><input id="conf" type="password" name="conf"></label><br/>
+      <div class="g-recaptcha" data-sitekey="6LeraRsUAAAAAAwB_QDQpWxmQBrUgelDdZ78SBNE"></div>
+      <input id="input" type="submit" value="Registrar">
+    </form>
+  </div>
 
 </body>
+
 </html>

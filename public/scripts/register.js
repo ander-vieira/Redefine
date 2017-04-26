@@ -3,7 +3,8 @@ function comprobarpass()
   var pass = document.getElementById("pass");
   var name = document.getElementById("email");
   var conf = document.getElementById("conf");
-
+  var username = document.getElementById("username");
+  
   name.style.backgroundColor="#FFFFFF";
   pass.style.backgroundColor="#FFFFFF";
   conf.style.backgroundColor="#FFFFFF";

@@ -1,0 +1,62 @@
+body {
+  background: url("../media/Backgrounds/Fondos/loginwallpp.jpg");
+}
+
+#registration_box {
+  position: absolute;
+  float: right;
+  width: 40%;
+  height: 70%;
+  top: 15%;
+  left: 50%;
+  margin: 0 auto;
+  transform: translate(-50%, 5%);
+  padding-top: 20px;
+  padding-bottom: 50px;
+  /*background-color: #666666;*/
+}
+
+#registration_box h1 {
+  color: white;
+}
+
+#registration_box form {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  right: 10px;
+}
+
+#registration_box input {
+  width: 60%;
+  height: 40px;
+  min-width: 300px;
+  max-width: 600px;
+  padding: 12px 30px;
+  margin: 10px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  opacity: 0.8;
+  text-align: center;
+  font-size: 18px;
+}
+
+#registration_box label {
+  color: white;
+  font-size: 20px;
+}
+
+#registration_box input[type=submit]:hover {
+  opacity: 1;
+  background-color: #77DD77;
+}
+
+#registration_box .g-recaptcha {
+  padding: 15px 15px 15px 15px;
+  width: 50%;
+  position: relative;
+  transform: translate(50%, 0);
+  align: center;
+}

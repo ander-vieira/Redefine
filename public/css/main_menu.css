@@ -14,12 +14,21 @@
   background-size: cover;
 }
 
+#mainmenu_container {
+  width: 100%;
+  height: 150px;
+  z-index: 10;
+  position: fixed;
+}
+
 #box-redefine {
   position: relative;
-  left: 47.5%;
-  z-index: 20;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 75%);
+  z-index: 10;
   top: calc(var(--main-width) / -4);
-  background-image: url(../media/Logo2.gif);
+  background-image: url(../media/Icons/waitingforlogo.png);
   --main-width: 100px;
   background-size: auto calc((var(--main-width) / 0.866));
   background-position: center;
@@ -29,16 +38,20 @@
   position: absolute;
   left: 5%;
   width: 45%;
-  height: 35px;
-  z-index: 2;
+  height: 45px;
+  top: 25%;
+  transform: translate(0%, 50%);
+  z-index: 9;
 }
 
 #box-menu-right {
   position: absolute;
-  right: 5%;
-  height: 35px;
+  left: 50%;
   width: 45%;
-  z-index: 2;
+  height: 45px;
+  top: 25%;
+  transform: translate(0%, 50%);
+  z-index: 9;
 }
 
 #menuul-left {
@@ -52,7 +65,7 @@
   visibility: visible;
   width: 100%;
   position: absolute;
-  border-bottom-left-radius: 3px;
+  border-radius: 4px;
 }
 
 #menuul-right {
@@ -65,7 +78,7 @@
   visibility: visible;
   width: 100%;
   position: absolute;
-  border-bottom-right-radius: 3px;
+  border-radius: 4px;
 }
 
 #menuul-right a {
@@ -89,13 +102,15 @@
 #menuul-right a:hover {
   animation-name: aparecer;
   animation-duration: 0.4s;
-  background-color: #30586E;
+  background-color: #008FB3;
+  border-radius: 4px;
 }
 
 #menuul-left a:hover {
   animation-name: aparecer;
   animation-duration: 0.4s;
-  background-color: #30586E;
+  background-color: #008FB3;
+  border-radius: 4px;
 }
 
 #menu_salir {
@@ -107,7 +122,7 @@
     background-color: #33d6ff;
   }
   to {
-    background-color: #30586E;
+    background-color: #008FB3;
   }
 }
 

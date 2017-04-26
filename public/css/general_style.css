@@ -1,5 +1,5 @@
 body {
-    background-image: url("../media/background.jpg");
+  /*  background-image: url("../media/background.jpg");*/
 }
 
 html, body {
@@ -32,12 +32,12 @@ h1 {
     text-align: center;
 }
 
-input[type="text"], input[type="password"], textarea {
+/*input[type="text"], input[type="password"], textarea {
     background-color: #7777FF;
     border:1px solid #0000FF;
     padding:5px;
     border-radius:5px;
-}
+}*/
 
 #page_body {
     padding:20px;
