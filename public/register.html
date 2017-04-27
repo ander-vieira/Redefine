@@ -5,12 +5,11 @@
   <link rel="Stylesheet" href="/css/general_style.css" type="text/css">
   <link rel="Stylesheet" href="/css/main_menu.css" type="text/css">
   <link rel="Stylesheet" href="/css/hexagon.css" type="text/css">
-  <link rel="Stylesheet" href="/css/LogInStyle.css" type="text/css">
+  <link rel="Stylesheet" href="/css/RegisterStyle.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="/scripts/register.js"></script>
   <script src="/scripts/ajax_login.js"></script>
-
 </head>
 
 <body>
@@ -42,23 +41,21 @@
 
 
   <div id="registration_box">
-    <h1>¡Hurra! Estas a un paso de crear tu cuenta</h1>
-    <form action="/registerform" method="post" onsubmit="return comprobarpass()">
+    <h1>¡Hurra!<br/> Estas a un paso de crear tu cuenta</h1>
+    <form action="/registerform" method="post" onsubmit="return confirmCaptcha();">
       <label>Nombre de usuario<br/><input id="username" type="text" name="username" onfocus="restartColor(this)"></label><br/>
       <label>Email<br/><input id="email" type="email" name="email" onfocus="restartColor(this)"></label><br/>
       <label>Password<br/><input id="pass" type="password" name="pass" onfocus="restartColor(this)"></label><br/>
       <label> Confirmar password<br/><input id="conf" type="password" name="conf" onfocus="restartColor(this)"></label><br/>
-      <div class="g-recaptcha" data-sitekey="6LeraRsUAAAAAAwB_QDQpWxmQBrUgelDdZ78SBNE"></div>
+      <div id="captcha" class="g-recaptcha" data-sitekey="6LeraRsUAAAAAAwB_QDQpWxmQBrUgelDdZ78SBNE"></div>
       <input id="input" type="submit" value="Registrar">
     </form>
   </div>
 
   <div id="errordiv">
-    <p id="alert-message">Texto de prueba para
-    Comprobar el funcionamiento</p>
+    <p id="alert-message"></p>
     <button id="alert" type="button" onclick="closeAlert()">Cerrar</button>
   </div>
-
 </body>
 
 </html>

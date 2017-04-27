@@ -1,4 +1,20 @@
-function comprobarpass() {
+//Para comprobar el formulario mejor utilizar esto!!
+function confirmCaptcha() {
+  document.getElementById("alert-message").innerHTML = ""
+  var correcto = comprobarformulario();
+  if (correcto == true && $("#g-recaptcha-response").val() != "") {
+    return true;
+  } else {
+    var diverr = document.getElementById("errordiv");
+    diverr.style.visibility = "visible"; //Lo he hecho asi pork no encuentro el equivalente en jquery, bueno seria usando .css y no me apetece
+    var msg = document.getElementById("alert-message").innerHTML
+    $('#alert-message').html(msg + "El captcha debe ser rellenado (!)");
+    return false;
+  }
+}
+
+//Comprobar los datos del formulario
+function comprobarformulario() {
 
   var pass = document.getElementById("pass");
   var mail = document.getElementById("email");
@@ -8,10 +24,10 @@ function comprobarpass() {
   //Mensajes con los errores
   msgs = [
     "Las contraseñas no coinciden",
-    "El usuario que has introducido ya esta en uso",
-    "Hay caracteres no permitidos",
-    "El campo email es obligatorio",
-    "El campo password es obligatorio"
+    "Usuario ya esta en uso",
+    "Caracteres no permitidos",
+    "Email obligatorio",
+    "Password obligatorio"
   ];
 
   errs = [false, false, false, false, false];
@@ -36,7 +52,7 @@ function comprobarpass() {
 
   //Comprobar que el nombre no contiene caracteres prohibidos
   var lowerName = username.value.toLowerCase();
-  console.log(lowerName);
+
   aceptado = "abcdefghijklmnñopqrstuvwxyz1234567890-_"
 
   for (var i in lowerName) {
@@ -64,8 +80,7 @@ function comprobarpass() {
 //Restablecer color
 function restartColor(inp) {
   document.getElementById("errordiv").style.visibility = "hidden";
-  inp.style.border = "6px solid #FFFFFF";
-  inp.style.borderColor = "#FFFFFF";
+  inp.style.border = "4px solid #FFFFFF";
 }
 
 //Cerrar alerta
