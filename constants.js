@@ -1,6 +1,6 @@
 //URL en la que todos debemos tener corriendo mongo, es la de por defecto asi que no habra problema
 
-var mongourl = 'mongodb://localhost:27017/prueba';
+var mongourl = 'mongodb://localhost:27017/redefinedb';
 var def_avatar = "/media/avatar.png";
 var def_description = "Inserte su descripción aquí";
 

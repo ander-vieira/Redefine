@@ -8,15 +8,21 @@ var queries = require('./queries'); //JS encargado de manejar los queries de la 
 
 module.exports = function(app) {
 
-
   //Se muestra el index solo, no hace falta poner un /
-
   //mandar página de registro
   app.get('/register', function(req, res) {
     res.sendFile(__dirname + '/public/register.html');
   });
 
-  //Mostrara los insultos guardados en la base de datos, en concreto, lo que metemos en el index ("nombre" y "apellido")
+  //HECHO POR ARITZ - POSIBLEMENTE SI NO LO BORRO YO ES QUE SE ME HA OLVIDADO, SI ALGUIEN LO VE QUE LO BORRE
+  //Se busca el usuario, segun si lo que me pasas es el mail o el nombre de usuario.
+  app.get("/findusers", function(req, res) {
+    queries.getUsersByUsernameOrMail(req.query.user, function(items) {
+      res.send(items);
+    });
+  });
+  //*****************************************************************************
+  //Devuelve los insultos en la base de datos en formato JSON
   app.get('/insultos', function(req, res) {
     MongoClient.connect(constants.mongourl, function(err, db) {
       if (err) {
@@ -58,7 +64,9 @@ module.exports = function(app) {
 
   //aqui se mandan los datos de registro
   app.post('/registerform', function(req, res) {
-    var name = req.body.email;
+
+    var username = req.body.username;
+    var email = req.body.email;
     var password = req.body.pass;
     var request = require('request');
     var headers = {
@@ -74,22 +82,15 @@ module.exports = function(app) {
         'response': req.body["g-recaptcha-response"]
       }
     }
+
     request(options, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         // Print out the response body
         body = JSON.parse(body);
         if (body.success) {
-            console.log("Registrando temporalmente: " + name + ":" + password);
-            //La parte de comprobar si es un nombre valido se hara en un js en el propio navegador, esto es provisional.
-            queries.temporal_registration(name, password, req, function() {
-            res.send("<html><head></head>\
-            <body>\
-            <div style=\"width:100%; height: auto; left: 50%; transform: translate(0%,0%);\">\
-            <p style=\"text-align: center;\">Genial! Te hemos enviado un mail a la direccion</p> <h1 style=\"text-align: center;\">" + name + "</h1><p style=\"text-align: center;\">para que confirmes tu cuenta.<br/>Nos vemos a la vuelta!</p>\
-            <a href='/index.html'>Volver al Inicio</a>\
-            </div>\
-            </body>\
-            </html>")
+          console.log("Registrando temporalmente: USERNAME: " + username + " EMAIL: " + email + " PASSWORD: " + password);
+          queries.temporal_registration(username, email, password, req, function() {
+            res.sendFile(__dirname + '/public/regok.html');
           });
         } else {
           console.log("Usuario no registrado, captcha fallido");
@@ -258,18 +259,11 @@ module.exports = function(app) {
   });
 
   app.post('/user_data', function(req, res) {
-    console.log(req.body);
-
     var nombre = req.body.nombre;
-
     queries.get_user(nombre, function(result) {
       if (result != null || result.length > 0)
         res.send(result[0]);
     });
-  });
-
-  app.get('/prueba', function(req, res) {
-    res.redirect("/pruebaJquery.html");
   });
 
   //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara a la pagina de error

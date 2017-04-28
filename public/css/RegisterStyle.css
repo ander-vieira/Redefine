@@ -4,8 +4,7 @@ body {
 
 #registration_box {
   position: absolute;
-  float: right;
-  width: 40%;
+  width: 90%;
   height: 70%;
   top: 10%;
   left: 50%;
@@ -21,6 +20,7 @@ body {
 }
 
 #registration_box form {
+  /*  text-align: center;*/
   text-align: center;
   margin: 0 auto;
   width: 100%;
@@ -46,6 +46,7 @@ body {
 #registration_box label {
   color: white;
   font-size: 20px;
+  text-align: center;
 }
 
 #registration_box input[type=submit]:hover {
@@ -56,10 +57,11 @@ body {
 
 #registration_box .g-recaptcha {
   padding: 15px 15px 15px 15px;
-  width: 50%;
+  width: auto;
+  height: auto;
   position: relative;
-  transform: translate(50%, 0);
-  align: center;
+  left: 50%;
+  transform: translate(-10%,0%);
 }
 
 #errordiv {
@@ -85,4 +87,30 @@ body {
   width: 10%;
   min-width: 100px;
   height:
+}
+
+#userused {
+  background-color: rgba(51, 51, 51, 0.6);
+  width: auto;
+  min-width: 200px;
+  height: auto;
+  font-size: 16px;
+  visibility: hidden;
+  position: absolute;
+  border: 2px solid #FFFFFF;
+  border-radius: 8px;
+  padding: 10px 10px 10px 10px;
+}
+
+#emailused {
+  background-color: rgba(51, 51, 51, 0.6);
+  width: auto;
+  height: auto;
+  min-width: 200px;
+  font-size: 16px;
+  visibility: hidden;
+  position: absolute;
+  border: 2px solid #FFFFFF;
+  border-radius: 8px;
+  padding: 10px 10px 10px 10px;
 }

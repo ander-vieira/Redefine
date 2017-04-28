@@ -43,8 +43,8 @@
   <div id="registration_box">
     <h1>¡Hurra!<br/> Estas a un paso de crear tu cuenta</h1>
     <form action="/registerform" method="post" onsubmit="return confirmCaptcha();">
-      <label>Nombre de usuario<br/><input id="username" type="text" name="username" onfocus="restartColor(this)"></label><br/>
-      <label>Email<br/><input id="email" type="email" name="email" onfocus="restartColor(this)"></label><br/>
+      <label>Nombre de usuario<br/><input id="username" type="text" name="username"><b id="userused"></b></label><br/>
+      <label>Email<br/><input id="email" type="email" name="email"><b id="emailused"></b></label><br/>
       <label>Password<br/><input id="pass" type="password" name="pass" onfocus="restartColor(this)"></label><br/>
       <label> Confirmar password<br/><input id="conf" type="password" name="conf" onfocus="restartColor(this)"></label><br/>
       <div id="captcha" class="g-recaptcha" data-sitekey="6LeraRsUAAAAAAwB_QDQpWxmQBrUgelDdZ78SBNE"></div>
