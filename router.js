@@ -8,16 +8,18 @@ var queries = require('./queries'); //JS encargado de manejar los queries de la 
 
 module.exports = function(app) {
 
+
+//*****************************************************************************
   //Se muestra el index solo, no hace falta poner un /
   //mandar página de registro
   app.get('/register', function(req, res) {
     res.sendFile(__dirname + '/public/register.html');
   });
-
+//*****************************************************************************
   //no borrar
   //Se busca el usuario, segun si lo que me pasas es el mail o el nombre de usuario.
   app.get("/findusers", function(req, res) {
-    if(req.headers.host != "localhost:3000"){
+    if(req.ip.toString().split(':')[3] != "127.0.0.1"){
       res.redirect("/error.html"); //Esto lo he puesto como medida de seguridad, ¿Se podria saltar de alguna manera? ¿Se os ocurre otra forma mejor?
     }else{
       queries.getUsersByUsernameOrMail(req.query.user, function(items) {
@@ -43,7 +45,7 @@ module.exports = function(app) {
       }
     });
   });
-
+//*****************************************************************************
   //COMENTADLO BIEN VOSOTROS ! =D
   app.get('/nombre', function(req, res) {
     var cookie = req.cookies.redefine;
@@ -52,7 +54,7 @@ module.exports = function(app) {
       res.send(items);
     });
   });
-
+//*****************************************************************************
   //Comprotamiento cuando se le da a enviar en el formulario de nombre y apellido
   app.post('/form', function(req, res) {
     var nombre = req.body.firstname;
@@ -65,7 +67,7 @@ module.exports = function(app) {
       res.redirect("/");
     });
   });
-
+//*****************************************************************************
   //aqui se mandan los datos de registro
   app.post('/registerform', function(req, res) {
 
@@ -103,13 +105,13 @@ module.exports = function(app) {
       }
     });
   });
-
+//*****************************************************************************
   app.get('/delete', function(req, res) {
     queries.delete_name_entries(function() {
       res.redirect("/");
     });
   });
-
+//*****************************************************************************
   app.get('/register_user', function(req, res) {
     var user = req.query.user;
     var code = req.query.code;
@@ -124,7 +126,7 @@ module.exports = function(app) {
       res.redirect("/");
     });
   });
-
+//*****************************************************************************
   app.post('/log_in', function(req, res) {
     var nombre = req.body.user;
     var cookie = Math.random().toString();
@@ -154,7 +156,7 @@ module.exports = function(app) {
     });
 
   });
-
+//*****************************************************************************
   app.get('/log_out', function(req, res) {
     var cookie = req.cookies.redefine;
 
@@ -163,7 +165,7 @@ module.exports = function(app) {
     res.clearCookie("redefine");
     res.redirect("/");
   });
-
+//*****************************************************************************
   app.post('/publish', function(req, res) {
     var cookie = req.cookies.redefine;
 
@@ -188,13 +190,13 @@ module.exports = function(app) {
       } else res.redirect("/");
     });
   });
-
+//*****************************************************************************
   app.get('/all_content', function(req, res) {
     queries.get_all_content(function(items) {
       res.send(items);
     });
   });
-
+//*****************************************************************************
   app.get('/my_content', function(req, res) {
     var nombre;
     var cookie = req.cookies.redefine;
@@ -207,7 +209,7 @@ module.exports = function(app) {
       });
     });
   });
-
+//*****************************************************************************
   //Devuelve un html modificado
   app.get('/user/:username', function(req, res) {
     var nombre = req.params.username;
@@ -232,7 +234,7 @@ module.exports = function(app) {
     });
 
   });
-
+//*****************************************************************************
   app.post("/modify_user", function(req, res) {
     var cookie = req.cookies.redefine;
 
@@ -250,7 +252,7 @@ module.exports = function(app) {
       }
     });
   });
-
+//*****************************************************************************
   app.get('/my_user_data', function(req, res) {
     var cookie = req.cookies.redefine;
 
@@ -261,7 +263,7 @@ module.exports = function(app) {
       });
     });
   });
-
+//*****************************************************************************
   app.post('/user_data', function(req, res) {
     var nombre = req.body.nombre;
     queries.get_user(nombre, function(result) {
@@ -269,10 +271,9 @@ module.exports = function(app) {
         res.send(result[0]);
     });
   });
-
+//*****************************************************************************
   //Cualquier otra URL que los locos usuarios de redefine puedan poner les redireccionara a la pagina de error
   app.get('*', function(req, res) {
     res.redirect("/error.html");
   });
-
 };
