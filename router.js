@@ -14,12 +14,16 @@ module.exports = function(app) {
     res.sendFile(__dirname + '/public/register.html');
   });
 
-  //HECHO POR ARITZ - POSIBLEMENTE SI NO LO BORRO YO ES QUE SE ME HA OLVIDADO, SI ALGUIEN LO VE QUE LO BORRE
+  //no borrar
   //Se busca el usuario, segun si lo que me pasas es el mail o el nombre de usuario.
   app.get("/findusers", function(req, res) {
-    queries.getUsersByUsernameOrMail(req.query.user, function(items) {
-      res.send(items);
-    });
+    if(req.headers.host != "localhost:3000"){
+      res.redirect("/error.html"); //Esto lo he puesto como medida de seguridad, ¿Se podria saltar de alguna manera? ¿Se os ocurre otra forma mejor?
+    }else{
+      queries.getUsersByUsernameOrMail(req.query.user, function(items) {
+        res.send(items);
+      });
+    }
   });
   //*****************************************************************************
   //Devuelve los insultos en la base de datos en formato JSON
