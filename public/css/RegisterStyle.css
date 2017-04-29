@@ -6,7 +6,7 @@ body {
   position: absolute;
   width: 90%;
   height: 70%;
-  top: 10%;
+  top: 100px;
   left: 50%;
   margin: 0 auto;
   transform: translate(-50%, 5%);
@@ -57,16 +57,16 @@ body {
 
 #registration_box .g-recaptcha {
   padding: 15px 15px 15px 15px;
-  width: auto;
+  width: 0%;
   height: auto;
   position: relative;
-  left: 50%;
-  transform: translate(-10%,0%);
+  left: 40%;
+  transform: translate(-30%,0%);
 }
 
 #errordiv {
   position: fixed;
-  width: 100%;
+  width: auto;
   height: auto;
   background-color: #FF4D4D;
   top: 20%;
