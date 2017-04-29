@@ -110,6 +110,12 @@ $(document).ready(function() {
         },
         error: function(jqXHR, status) {
           console.log("Error en ajax username");
+          document.getElementById("username").style.border = "4px solid #FF7777";
+          uu = document.getElementById("userused");
+          uu.style.visibility = "visible";
+          uu.innerHTML =  "&#8855 Error temporal, imposible acceder a la base de datos";
+          uu.style.color = "#FF7777";
+          userused = true;
         }
       });
     } else {
@@ -161,6 +167,12 @@ $(document).ready(function() {
         },
         error: function(jqXHR, status) {
           console.log("Error en ajax email");
+          document.getElementById("email").style.border = "4px solid #FF7777";
+          eu = document.getElementById("emailused");
+          eu.style.visibility = "visible";
+          eu.innerHTML = "&#8855 Error temporal, imposible acceder a la base de datos";
+          eu.style.color = "#FF7777";
+          mailused = true;
         }
       });
     } else {

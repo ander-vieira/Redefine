@@ -86,7 +86,6 @@ function get_session_data(cookie, aftercall) {
 //------------------------------------------------------------------------------
 // PASOS QUE SIGUE UN USUARIO QUE SE CREA UNA CUENTA NUEVA
 //------------------------------------------------------------------------------
-
 //Utilizado para enviar mails
 let transporter = nodemailer.createTransport({
   service: 'gmail',
