@@ -242,6 +242,7 @@ module.exports = function(app) {
   //Devuelve un html modificado
   app.get('/user/:username', function(req, res) {
     var nombre = req.params.username;
+    
     //Coge los datos del usuario de la BD
     queries.getUsersByUsernameOrMail(nombre, function(result) {
       //Si el usuario existe
