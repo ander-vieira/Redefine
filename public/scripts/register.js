@@ -140,7 +140,7 @@ $(document).ready(function() {
   });
   $('#email').change(function() {
     var mailc = $('#email').val().toString().split("@");
-    if (mailc.length == 2 && mailc[1] != "") {
+    if (mailc.length == 2 && mailc[1] != "" && comprobarValidezLetrasEmail($('#email').val().toString())) {
       $.ajax({
         type: "GET",
         url: "http://localhost:3000/findusers",
@@ -207,6 +207,20 @@ function closeAlert() {
 //******************************************************************************
 function comprobarValidezLetras(texto) {
   aceptado = "abcdefghijklmnñopqrstuvwxyz1234567890-_"
+  var lowerName = texto.toString().toLowerCase();
+  var validez = true;
+
+  for (var i in lowerName) {
+    if (aceptado.indexOf(lowerName[i]) == -1) {
+      validez = false;
+      break;
+    }
+  }
+  return validez;
+}
+//******************************************************************************
+function comprobarValidezLetrasEmail(texto) {
+  aceptado = "abcdefghijklmnñopqrstuvwxyz1234567890-_@"
   var lowerName = texto.toString().toLowerCase();
   var validez = true;
 
