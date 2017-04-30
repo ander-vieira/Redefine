@@ -220,7 +220,7 @@ function comprobarValidezLetras(texto) {
 }
 //******************************************************************************
 function comprobarValidezLetrasEmail(texto) {
-  aceptado = "abcdefghijklmnñopqrstuvwxyz1234567890-_@"
+  aceptado = "abcdefghijklmnñopqrstuvwxyz1234567890-_@.-_~!$&'()*+,;=:"; //Para esto he buscado en internet los caracteres que se dejan, en esta web: http://preguntascojoneras.blogspot.com.es/2015/01/caracteres-validos-en-un-email.html
   var lowerName = texto.toString().toLowerCase();
   var validez = true;
 
