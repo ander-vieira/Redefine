@@ -52,7 +52,7 @@ function comprobarformulario() {
     username.style.borderColor = "#FF7777";
     errs[1] = true
   }
-  if (pass.value != conf.value) {
+  if (pass.value != conf.value || pass.value == "" || conf.value == "") {
     pass.style.borderColor = "#FF7777";
     conf.style.borderColor = "#FF7777";
     errs[0] = true;

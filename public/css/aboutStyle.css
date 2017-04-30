@@ -2,10 +2,12 @@
   background: url(../media/Backgrounds/Fondos/w06.jpg) no-repeat center;
   background-size: auto;
   width: 100%;
+  min-width: 800px;
   height: 80%;
   min-height: 600px;
   z-index: 5;
   position: absolute;
+  margin: 0px 0px 0px 0px;
 }
 
 #changer_left {

@@ -17,6 +17,7 @@ body {
 #registration_box h1 {
   color: white;
   font-size: 30px;
+  text-align: center;
 }
 
 #registration_box form {
@@ -66,7 +67,7 @@ body {
 
 #errordiv {
   position: fixed;
-  width: auto;
+  width: 100%;
   height: auto;
   background-color: #FF4D4D;
   top: 20%;

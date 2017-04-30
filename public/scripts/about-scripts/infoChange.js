@@ -7,12 +7,14 @@ titles = [
   "Catálogo y Novedades",
   "Grupos y Clanes"
 ];
+
 infos = [
   "En Redefine ofrecemos un punto de encuentro para jugadores y desarrolladores.",
   "En tu zona personal podras subir contenido y compartirlo con la comunidad. Utilízalo para darte a conocer o trabajar en modo privado, tu decides!",
   "Mira las últimas novedades en videojuegos, consolas y lanzamientos o visita las últimas publicaciones de las personas a las que sigues. Descubre lo que te espera en Redefine.",
   "Si tienes un grupo o un clan y quieres que la gente os conozca, Redefine es vuestro hogar. Crea ahora un grupo y empieza a colaborar con otras personas!"
 ];
+
 wallpp = [
   "url(../media/Backgrounds/Fondos/w01.jpg) no-repeat center",
   "url(../media/Backgrounds/Fondos/w06.jpg) no-repeat center",
@@ -23,7 +25,7 @@ wallpp = [
 var actualInfo = 0;
 
 $(document).ready(function() {
-
+  console.log("Que pasa??");
   document.getElementById('infoTitle').innerHTML = titles[0];
   document.getElementById('infoInfo').innerHTML = infos[0];
   document.getElementById('aboutus').style.background = wallpp[0];
