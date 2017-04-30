@@ -140,7 +140,6 @@ $(document).ready(function() {
   });
   $('#email').change(function() {
     var mailc = $('#email').val().toString().split("@");
-    console.log(mailc);
     if (mailc.length == 2 && mailc[1] != "" && mailc[0] != "" && comprobarValidezLetrasEmail($('#email').val().toString())) {
       $.ajax({
         type: "GET",
