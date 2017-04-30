@@ -113,7 +113,7 @@ $(document).ready(function() {
           document.getElementById("username").style.border = "4px solid #FF7777";
           uu = document.getElementById("userused");
           uu.style.visibility = "visible";
-          uu.innerHTML =  "&#8855 Error temporal, imposible acceder a la base de datos";
+          uu.innerHTML = "&#8855 Error temporal, imposible acceder a la base de datos";
           uu.style.color = "#FF7777";
           userused = true;
         }
@@ -140,7 +140,8 @@ $(document).ready(function() {
   });
   $('#email').change(function() {
     var mailc = $('#email').val().toString().split("@");
-    if (mailc.length == 2 && mailc[1] != "" && comprobarValidezLetrasEmail($('#email').val().toString())) {
+    console.log(mailc);
+    if (mailc.length == 2 && mailc[1] != "" && mailc[0] != "" && comprobarValidezLetrasEmail($('#email').val().toString())) {
       $.ajax({
         type: "GET",
         url: "http://localhost:3000/findusers",
@@ -220,15 +221,33 @@ function comprobarValidezLetras(texto) {
 }
 //******************************************************************************
 function comprobarValidezLetrasEmail(texto) {
-  aceptado = "abcdefghijklmnñopqrstuvwxyz1234567890-_@.-_~!$&'()*+,;=:"; //Para esto he buscado en internet los caracteres que se dejan, en esta web: http://preguntascojoneras.blogspot.com.es/2015/01/caracteres-validos-en-un-email.html
+  //correo = local@domain
+  aceptadolocal = "abcdefghijklmnñopqrstuvwxyz1234567890-_@.~!$&'()*+,;=:"; //Para esto he buscado en internet los caracteres que se dejan, en esta web: http://preguntascojoneras.blogspot.com.es/2015/01/caracteres-validos-en-un-email.html
+  aceptadodomain = "abcdefghijklmnñopqrstuvwxyz1234567890-_@.";
   var lowerName = texto.toString().toLowerCase();
   var validez = true;
+  var mailc = $('#email').val().toString().split("@");
 
-  for (var i in lowerName) {
-    if (aceptado.indexOf(lowerName[i]) == -1) {
+  //Comprobacion de caracteres para la parte local
+  for (var i in mailc[0]) {
+    if (aceptadolocal.indexOf(mailc[0][i]) == -1) {
       validez = false;
       break;
     }
   }
+
+  //comprobacion para la parte del host
+  for (var i in mailc[1]) {
+    if (aceptadodomain.indexOf(mailc[1][i]) == -1) {
+      validez = false;
+      break;
+    }
+  }
+
+  //Si en la parte del host no hay un punto tambien es error
+  if (mailc[1].indexOf('.') == -1) {
+    validez = false;
+  }
+
   return validez;
 }
