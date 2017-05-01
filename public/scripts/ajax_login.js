@@ -2,11 +2,17 @@ var xhttp = new XMLHttpRequest();
 
 xhttp.onreadystatechange = function() {
     if(this.readyState==4 && this.status==200) {
+        console.log("mostrando...");
+        console.log(this.response);
+
         var jsonObj2 = JSON.parse(this.responseText);
         var element;
 
         element = document.getElementById("menu_login");
         if(element != null) element.style.display = "none";
+
+        element = document.getElementById("registration");
+        if(element != null) element.style.display = "block";
 
         element = document.getElementById("menu_salir");
         if(element != null) element.style.display = "block";
@@ -37,4 +43,3 @@ xhttp.onreadystatechange = function() {
 
 xhttp.open("GET", "/nombre", true);
 xhttp.send();
-

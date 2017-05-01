@@ -158,13 +158,15 @@ module.exports = function(app) {
     console.log(req.ip.toString());
     console.log(req.ip.toString().split(':'));
     console.log(req.ip.toString().split(':')[3]);
-    if (req.ip.toString().split(':')[3] != "127.0.0.1") {
-      res.redirect("/error.html"); //Esto lo he puesto como medida de seguridad, ¿Se podria saltar de alguna manera? ¿Se os ocurre otra forma mejor?
-    } else {
+    console.log(req.connection.remoteAddress);
+    console.log(req.headers['x-forwarded-for']);
+    //if (req.ip.toString().split(':')[3] != "127.0.0.1") {
+      //res.redirect("/error.html"); //Esto lo he puesto como medida de seguridad, ¿Se podria saltar de alguna manera? ¿Se os ocurre otra forma mejor?
+    //} else {
       queries.getUsersByUsernameOrMail(req.query.user, function(items) {
         res.send(items);
       });
-    }
+    //}
   });
   //*************************************************************
   //Devuelve los insultos en la base de datos en formato JSON
