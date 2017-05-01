@@ -155,6 +155,9 @@ module.exports = function(app) {
 
   //Se busca el usuario, segun si lo que me pasas es el mail o el nombre de usuario.
   app.get("/findusers", function(req, res) {
+    console.log(req.ip.toString());
+    console.log(req.ip.toString().split(':'));
+    console.log(req.ip.toString().split(':')[3]);
     if (req.ip.toString().split(':')[3] != "127.0.0.1") {
       res.redirect("/error.html"); //Esto lo he puesto como medida de seguridad, ¿Se podria saltar de alguna manera? ¿Se os ocurre otra forma mejor?
     } else {
@@ -242,7 +245,7 @@ module.exports = function(app) {
   //Devuelve un html modificado
   app.get('/user/:username', function(req, res) {
     var nombre = req.params.username;
-    
+
     //Coge los datos del usuario de la BD
     queries.getUsersByUsernameOrMail(nombre, function(result) {
       //Si el usuario existe

@@ -199,6 +199,7 @@ function restartColor(inp) {
   inp.style.border = "4px solid #FFFFFF";
 }
 
+//******************************************************************************
 //Cerrar alerta
 function closeAlert() {
   document.getElementById("errordiv").style.visibility = "hidden";
